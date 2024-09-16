@@ -3,7 +3,7 @@
 import Image from 'next/image'
 import { useState, useEffect, useRef } from 'react'
 import { Button } from "@/components/ui/button"
-import { Calendar, Clock, MapPin, Link as LinkIcon, ChevronRight, ExternalLink, Facebook } from 'lucide-react'
+import { Calendar, Clock, MapPin, Link as LinkIcon,  ExternalLink, Facebook } from 'lucide-react'
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
 
 const WaveAndBirdAnimation = () => {
