@@ -3,7 +3,7 @@
 import Image from 'next/image'
 import { useState, useEffect, useRef } from 'react'
 import { Button } from "@/components/ui/button"
-import { Calendar, Clock, MapPin, Link as LinkIcon,  ExternalLink, Facebook } from 'lucide-react'
+import { Calendar, Clock, MapPin, Link as LinkIcon, ExternalLink, Facebook, User } from 'lucide-react'
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
 
 const WaveAndBirdAnimation = () => {
@@ -451,7 +451,7 @@ export default function LandingPage() {
                   <a href="https://kamome2024.peatix.com/" className="block w-full" target="_blank" rel="noopener noreferrer">チケットを購入する(Peatix)</a>
                 </Button>
                 <Button className="bg-[#79a7b6] text-white hover:bg-[#79a7b6]/90">
-                  <a href="https://docs.google.com/forms/d/e/1FAIpQLSe0Ys4l33OIZ9_gRVaoUIDIAImHO-wwDkW5EmmZp91yJrYJWQ/viewform?usp=sf_link" className="block w-full" target="_blank"  rel="noopener noreferrer">セッションを申し込む(Google Form)</a>
+                  <a href="https://docs.google.com/forms/d/e/1FAIpQLSfXXXXXXXXXXXXX/viewform" className="block w-full" target="_blank" rel="noopener noreferrer">セッションを申し込む(Google Form)</a>
                 </Button>
               </div>
             </div>
@@ -463,67 +463,51 @@ export default function LandingPage() {
             <h2 className="text-3xl font-bold mb-8 text-center">開催概要</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div className="bg-white p-6 rounded-lg shadow-md">
-                <h3 className="text-xl font-bold mb-4">イベント詳細</h3>
-                <ul className="space-y-4">
-                  <li className="flex items-start">
-                    <Calendar className="w-6 h-6 mr-2 flex-shrink-0" />
-                    <span>
-                      <strong>開催日:</strong> 2024年11月10日（日）
-                    </span>
-                  </li>
-                  <li className="flex items-start">
-                    <Clock className="w-6 h-6 mr-2 flex-shrink-0" />
-                    <span>
-                      <strong>時間:</strong> 10:00〜17:15（受付開始 9:30）
-                    </span>
-                  </li>
-                  <li className="flex items-start">
-                    <MapPin className="w-6 h-6 mr-2 flex-shrink-0" />
-                    <span>
-                      <strong>会場:</strong> グロービス経営大学院 横浜校<br />
-                      〒220-0011 神奈川県横浜市西区高島2-19-12 スカイビル27階
-                    </span>
-                  </li>
-                  <li className="flex items-start">
-                    <LinkIcon className="w-6 h-6 mr-2 flex-shrink-0" />
-                    <a href="https://goo.gl/maps/Ld4Ld9Ue5Eo9Lfqx6" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
-                      Google マップで見る
-                    </a>
-                  </li>
-                </ul>
+                <h3 className="text-xl font-bold mb-4 flex items-center">
+                  <Calendar className="mr-2" />
+                  開催日時
+                </h3>
+                <p className="mb-2">2024年11月10日（日）</p>
+                <p>10:00-17:15 (受付開始 09:30)</p>
               </div>
               <div className="bg-white p-6 rounded-lg shadow-md">
-                <h3 className="text-xl font-bold mb-4">主催・協賛</h3>
-                <ul className="space-y-4">
-                  <li>
-                    <strong>主催:</strong> グロービス横浜活性化クラブ（GYAC）
-                  </li>
-                  <li>
-                    <strong>協賛:</strong> グロービス経営大学院 横浜校
-                  </li>
-                </ul>
+                <h3 className="text-xl font-bold mb-4 flex items-center">
+                  <MapPin className="mr-2" />
+                  会場
+                </h3>
+                <p className="mb-2">グロービス経営大学院　横浜・特設キャンパス</p>
+                <p>〒220-0005　神奈川県横浜市西区南幸1-1-1 JR横浜タワー14F</p>
+              </div>
+              <div className="bg-white p-6 rounded-lg shadow-md">
+                <h3 className="text-xl font-bold mb-4 flex items-center">
+                  <Clock className="mr-2" />
+                  アクセス
+                </h3>
+                <p className="mb-2">JR横浜駅 北改札口、きた西口出口を出て左／徒歩5分</p>
+                <p className="text-xs">※JR横浜タワー内に14Fへの直通エレベーターはございませんので、12Fで13-21F行きエレベーターまたはエスカレーターにお乗り換えいただき、14Fまでお越しください。</p>
+              </div>
+              <div className="bg-white p-6 rounded-lg shadow-md">
+                <h3 className="text-xl font-bold mb-4 flex items-center">
+                  <User className="mr-2" />
+                  主催
+                </h3>
+                <p className="mb-2">グロービス横浜活性化クラブ(GYAC)</p>
+                <a href="https://www.facebook.com/globisyokohama" target="_blank" rel="noopener noreferrer" className="inline-block">
+                  <Facebook className="w-6 h-6 text-[#545454] hover:text-[#ffde59]" />
+                </a>
               </div>
             </div>
           </div>
         </section>
       </main>
 
-      <footer className="bg-[#545454] text-white py-10">
+      <footer className="bg-[#545454] text-white py-8">
         <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="mb-4 md:mb-0">
-              <h2 className="text-2xl font-bold mb-2">かもめ会議 2024</h2>
-              <p>新たな視点で、ビジネスの未来を描く</p>
-            </div>
-            <div className="flex space-x-4">
-              <a href="https://www.facebook.com/groups/1207139186532704" target="_blank" rel="noopener noreferrer" className="hover:text-[#ffde59]">
-                <Facebook className="w-6 h-6" />
-                <span className="sr-only">Facebook</span>
-              </a>
-            </div>
-          </div>
-          <div className="mt-8 text-center">
-            <p>&copy; 2023 かもめ会議 2024. All rights reserved.</p>
+          <div className="text-center">
+            <p>
+              お問い合わせ: <a href="mailto:kamome_2024.stu@globis.ac.jp" className="hover:underline">kamome_2024.stu@globis.ac.jp</a>
+            </p>
+            <p className="mt-4">&copy; 2024 かもめ会議. All rights reserved.</p>
           </div>
         </div>
       </footer>
