@@ -261,7 +261,30 @@ const schedule = [
   { startTime: '16:45', endTime: '17:15', event: 'クロージング /\nディスカッション', type: 'simple' }
 ];
 
-const EventPopup = ({ session, eventType, startTime, endTime, duration }) => {
+type Speaker = {
+  name: string;
+  organization: string;
+  position: string;
+  info: string;
+  image?: string;
+};
+
+type Session = {
+  event: string;
+  title: string;
+  description: string;
+  speakers: Speaker[];
+};
+
+type EventPopupProps = {
+  session: Session;
+  eventType: string;
+  startTime: string;
+  endTime: string;
+  duration?: string;
+};
+
+const EventPopup: React.FC<EventPopupProps> = ({ session, eventType, startTime, endTime, duration }) => {
   return (
     <Dialog>
       <DialogTrigger asChild>
