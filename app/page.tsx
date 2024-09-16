@@ -397,7 +397,7 @@ export default function LandingPage() {
                   </div>
                   {item.type === 'plenary' || item.type === 'breakout' ? (
                     <div className={`mt-4 ${item.type === 'plenary' ? 'grid-cols-1' : 'grid grid-cols-1 md:grid-cols-2 gap-4'}`}>
-                      {item.sessions.map((session, sessionIndex) => (
+                      {item.sessions?.map((session, sessionIndex) => (
                         <div key={sessionIndex} className="mb-4 h-full">
                           <EventPopup 
                             session={session} 
