@@ -389,8 +389,7 @@ return (
                     {item.duration && <p className="text-sm text-gray-600">{item.duration}</p>}
                   </div>
                   <span className={`text-lg ${['全体会', '分科会1', '分科会2', '分科会3'].includes(item.event) ? 'bg-[#ff8383] text-white px-2 py-1 rounded-full' : ''}`}>
-                    {item.event.split('
-').map((line, i) => (
+                    {item.event.split('\n').map((line, i) => (
                       <span key={i} className="block">{line}</span>
                     ))}
                   </span>
