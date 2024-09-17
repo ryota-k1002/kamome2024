@@ -580,7 +580,7 @@ export default function LandingPage() {
                   主催
                 </h3>
                 <p className="mb-2">グロービス横浜活性化クラブ(GYAC)</p>
-                <a href="https://www.facebook.com/globisyokohama" target="_blank" rel="noopener noreferrer" className="inline-block">
+                <a href="https://www.facebook.com/groups/gyac.yokohama" target="_blank" rel="noopener noreferrer" className="inline-block">
                   <Facebook className="w-6 h-6 text-[#545454] hover:text-[#ffde59]" />
                 </a>
               </div>
