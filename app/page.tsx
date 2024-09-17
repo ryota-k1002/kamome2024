@@ -169,7 +169,7 @@ const FloatingHeader = () => {
   return (
     <header className="fixed top-0 left-0 right-0 z-50">
       <div className="bg-white shadow-md">
-        <div className="container mx-auto px-4 py-4 flex justify-between items-center">
+        <div className="container mx-auto px-4 py-4 flex justify-between items-center max-w-6xl">
           <div className={`w-48 h-20 transition-opacity duration-300 ${showLogo ? 'opacity-100' : 'opacity-0'}`}>
             <Image
               src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/kamome_logo_padding-VBJ3I4qnKZ8Fa7oZLYgwD1xvXWtFf8.png"
@@ -440,7 +440,7 @@ export default function LandingPage() {
         <HeroSection timeLeft={timeLeft} />
 
         <section id="about" className="py-20 bg-white">
-          <div className="container mx-auto px-4">
+          <div className="container mx-auto px-4 max-w-6xl">
             <h2 className="text-3xl font-bold mb-8 text-center">ABOUT</h2>
             <div className="mb-8">
               <h3 className="text-3xl font-bold text-[#79a7b6] text-center mb-6">
@@ -452,7 +452,9 @@ export default function LandingPage() {
             </p>
             <ul className="list-disc pl-6 mb-6 space-y-2">
               <li><strong>起業家精神の真髄に触れる：</strong> 横浜ゆかりの起業家たちが、失敗を恐れず挑戦する勇気をリアルな体験とともに伝授。</li>
-              <li><strong>社会課題へのアプローチを学ぶ：</strong> 未病対策やサーキュラーエコノミーなど、今注目の分野で活躍する実務者から最前線の取り組みを聞く。</li>
+              <li><strong>社会課題へのアプローチを学ぶ：</strong> 未病対策やサーキュラーエコノミーなど、今注目の分野で活躍する実務者から最前線の取り組み
+
+を聞く。</li>
               <li><strong>未来を創る仲間と出会う：</strong> 「ヨコハマ未来創造会議」のような、次世代を担う若者たちの斬新な発想に触れ、刺激を得る。</li>
               <li><strong>意外なキャリアの可能性を発見：</strong> 宇宙ビジネスやフードテック、地方創生など、思わぬところにあなたのスキルが活きるチャンスが。</li>
             </ul>
@@ -463,7 +465,7 @@ export default function LandingPage() {
         </section>
 
         <section id="timetable" className="py-20 bg-[#f4f4f4]">
-          <div className="container mx-auto px-4">
+          <div className="container mx-auto px-4 max-w-6xl">
             <h2 className="text-3xl font-bold mb-8 text-center">TIME TABLE</h2>
             <div className="space-y-4 relative">
               <div className="absolute left-1/2 top-0 bottom-0 w-px bg-gray-300 transform -translate-x-1/2"></div>
@@ -502,7 +504,7 @@ export default function LandingPage() {
         </section>
 
         <section id="registration" className="py-20 bg-white">
-          <div className="container mx-auto px-4">
+          <div className="container mx-auto px-4 max-w-6xl">
             <h2 className="text-3xl font-bold mb-8 text-center">参加申し込み</h2>
             <div className="bg-[#f4f4f4] p-6 rounded-lg shadow-md mb-8">
               <h3 className="text-xl font-bold mb-4">申し込み方法</h3>
@@ -544,7 +546,7 @@ export default function LandingPage() {
         </section>
 
         <section className="py-20 bg-[#f4f4f4]">
-          <div className="container mx-auto px-4">
+          <div className="container mx-auto px-4 max-w-6xl">
             <h2 className="text-3xl font-bold mb-8 text-center">開催概要</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div className="bg-white p-6 rounded-lg shadow-md">
@@ -590,7 +592,7 @@ export default function LandingPage() {
       </main>
 
       <footer className="bg-[#545454] text-white py-8">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 max-w-6xl">
           <div className="text-center">
             <p>
               お問い合わせ: <a href="mailto:kamome_2024.stu@globis.ac.jp" className="hover:underline">kamome_2024.stu@globis.ac.jp</a>
