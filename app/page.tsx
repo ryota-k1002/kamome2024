@@ -450,7 +450,7 @@ return (
                 <a href="https://kamome2024.peatix.com/" className="block w-full" target="_blank" rel="noopener noreferrer">チケットを購入する(Peatix)</a>
               </Button>
               <Button className="bg-[#79a7b6] text-white hover:bg-[#79a7b6]/90">
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLSfXXXXXXXXXXXXX/viewform" className="block w-full" target="_blank" rel="noopener noreferrer">セッションを申し込む(Google Form)</a>
+                <a href="https://forms.gle/56z5xnX9FgUja8br5" className="block w-full" target="_blank" rel="noopener noreferrer">セッションを申し込む(Google Form)</a>
               </Button>
             </div>
           </div>
