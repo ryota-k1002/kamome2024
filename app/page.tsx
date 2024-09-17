@@ -3,7 +3,7 @@
 import Image from 'next/image'
 import { useState, useEffect, useRef } from 'react'
 import { Button } from "@/components/ui/button"
-import { Calendar, Clock, MapPin, Link as LinkIcon, ExternalLink, Facebook, User, Building2 } from 'lucide-react'
+import { Calendar, MapPin, ExternalLink, Facebook, Building2, User } from 'lucide-react'
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
 
 const WaveAndBirdAnimation = () => {
@@ -159,16 +159,15 @@ const schedule = [
 { startTime: '10:00', endTime: '10:15', event: 'オープニング', type: 'simple' },
 {
   startTime: '10:15',
-  endTime: '11:45',
+  endTime: '11:30',
   event: '全体会',
   type: 'plenary',
-  duration: '(90min.)',
+  duration: '(75min.)',
   sessions: [
     {
       event: '全体会',
-      title: '地域のつながりと志
-~ 横浜にゆかりのある4名が語る自己実現 ~',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nisi eu tincidunt tincidunt, nunc nunc tincidunt nunc, vitae aliquam nisl nunc vitae nisl. Sed euismod, nunc sit amet aliquam tincidunt, nunc nunc tincidunt nunc, vitae aliquam nisl nunc vitae nisl. Sed euismod, nunc sit amet aliquam tincidunt, nunc nunc tincidunt nunc, vitae',
+      title: '横浜の卒業生が語る、GLOBISや地域のつながりを活かした志の実現',
+      description: '横浜にゆかりのある4名の登壇者を迎え、起業や社会活動を通じて得た体験や、その背景にある志についてお話しいただくパネルディスカッションを開催します。在学中に意識していたこと、卒業後に感じていることなど、自己実現に向けた体験などを共有いただく場となります。参加者の皆さんにとって、新たな視点や一歩踏み出すためのヒントを得られる機会となるでしょう。',
       speakers: [
         { name: '高野 俊行氏', organization: '元日揮ホールディングス
 ユニクル株式会社', position: 'CEO', info: '' },
@@ -179,7 +178,7 @@ const schedule = [
     }
   ]
 },
-{ startTime: '11:45', endTime: '13:00', event: 'ランチブレイク /
+{ startTime: '11:30', endTime: '13:00', event: 'ランチブレイク /
 ネットワーキング', type: 'simple' },
 {
   startTime: '13:00',
@@ -202,7 +201,7 @@ const schedule = [
       title: 'ヨコハマ未来創造会議
 ～フードサーキュラーを起点に子どもの可能性を最大化するには？～',
       description: '2027年に横浜で開催される、GREEN×EXPO 2027（2027年国際園芸博覧会）を契機に、現在の大学生や企業の若手社員の若者が参加して、将来の社会についての議論、共感、自分ごとの醸成を目指す「ヨコハマ未来創造会議」が本年横浜市で立ち上がりました。
-全部で5つのプロジェクトが進行中で、その中の「フードサーキュラーを起点に子どもの可能性を最大化するには？」に取り組んでいるチームの発表を行っていただきます。キーワードは、#フードロスゼロ、＃貧困解決、＃学校給食。当日はプロジェクトの発表とともに、かもめ会議参加者と意見交換ができればと考えております。',
+全部で5つのプロジェクトが進行中で、その中の「フードサーキュラーを起点に子どもの可能性を最大化するには？」に取り組んでいるチームの発表を行っていただきます。キーワードは、#フードロス、＃貧困解決、＃学校給食。当日はプロジェクトの発表とともに、かもめ会議参加者と意見交換ができればと考えております。',
       speakers: [
         { name: '榎 裕子氏', organization: 'ヨコハマ未来創造会議 メンバー', position: '', info: '', image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E3%83%A8%E3%82%B3%E3%83%8F%E3%83%9E%E6%9C%AA%E6%9D%A5%E4%BC%9A%E8%AD%B0_%E6%A6%8E%E3%81%95%E3%82%93-mQAcpSPen6tOaEiRAL8wIkWkiqZNVV.png' },
         { name: '馬場 英鷹氏', organization: 'ヨコハマ未来創造会議 メンバー', position: '', info: '', image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E3%83%A8%E3%82%B3%E3%83%8F%E3%83%9E%E6%9C%AA%E6%9D%A5%E4%BC%9A%E8%AD%B0_%E9%A6%AC%E5%A0%B4%E3%81%95%E3%82%93-r56OjWtqO39IasrnkP0tTuxQuMUjQ0.png' }
@@ -222,7 +221,7 @@ const schedule = [
       event: '分科会C',
       title: '地方創生
 ～鎌倉から地方創成を生み出す地域企業について～',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nisi eu tincidunt tincidunt, nunc nunc tincidunt nunc, vitae aliquam nisl nunc vitae nisl. Sed euismod, nunc sit amet aliquam tincidunt, nunc nunc tincidunt nunc, vitae aliquam nisl nunc vitae nisl. Sed euismod, nunc sit amet aliquam tincidunt, nunc nunc tincidunt nunc, vitae',
+      description: '鎌倉市に拠点を構え、神奈川県の地方創生だけではなく、全国の地域や企業と連携し、地方創生の道を切り拓く同社。全国では様々な企業が各自治体と地方創生に向けた活動を進める中で、同社として地方創生を進める上での難所やどんな想いで従業員が各プロジェクトを進めてきたのかを具体的なプロジェクトをもとにお話を伺いたいと思います。',
       speakers: [
         { name: '宮本 早織氏', organization: '面白法人カヤック', position: '地域資本主義事業部', info: '' }
       ]
@@ -255,8 +254,7 @@ const schedule = [
 実はキャリアにおいても、高度専門領域というイメージに反して、地上産業の知見やスキルが宇宙産業で大いに求められています。
 今回は、大企業から宇宙ベンチャーに飛び込んだデザイナーが、ユニークなキャリア体験談も交えながら、その魅力についてお話しします。',
       speakers: [
-        { name: '山下 コウセイ氏', organization: 'DigitalBlast', position: '宇宙デザイナー', info: '' },
-        { name: '田村 拓久良氏', organization: 'DigitalBlast', position: 'メディア事業部 副部長', info: '' }
+        { name: '山下 コウセイ氏', organization: 'DigitalBlast', position: '宇宙デザイナー', info: '' }
       ]
     },
     {
@@ -499,7 +497,7 @@ return (
                 アクセス
               </h3>
               <p className="mb-2">JR横浜駅 北改札口、きた西口出口を出て左／徒歩5分</p>
-              <p className="text-xs">※JR横浜タワー内に14Fへの直通エレベーターはございませんので、12Fで13-21F行きエレベーターまたはエスカレーターにお乗り換えいただき、14Fまでお越しください。</p>
+              <p className="mb-2">JR横浜タワー内に14Fへの直通エレベーターはございませんので、12Fで13-21F行きエレベーターまたはエスカレーターにお乗り換えいただき、14Fまでお越しください。</p>
               <a href="https://mba.globis.ac.jp/inquiry/#yokohama" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
                 詳細なアクセス情報はこちら
               </a>
