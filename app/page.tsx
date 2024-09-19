@@ -285,7 +285,13 @@ const schedule = [
         title: '地方創生\n～鎌倉から地方創生を生み出す地域企業について～',
         description: '鎌倉市に拠点を構え、神奈川県の地方創生だけではなく、全国の地域や企業と連携し、地域活性化、移住者の促進や関係人口創出に繋がるプロジェクトを手掛ける同社。今回ご登壇いただく宮本氏は、前職の編集者から同社に転職され、現在はちいき資本主義事業部の事業部長を担っておられます。同社がこれまで手掛けたきたプロジェクトの紹介に加え、宮本氏がどのような想いを持ち、全国の地域創生を進めているのかについてもお話いただきます。',
         speakers: [
-          { name: '宮本 早織氏', organization: '面白法人カヤック', position: '地域資本主義事業部', info: '' }
+          { 
+            name: '宮本 早織氏', 
+            organization: '面白法人カヤック', 
+            position: '地域資本主義事業部', 
+            info: '',
+            image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E5%9C%B0%E6%96%B9%E5%89%B5%E7%94%9F%E5%AE%AE%E6%9C%AC%E3%81%95%E3%82%93-YCLUEY7KLQFkc18vnuTqBKCNhcBOtg.png'
+          }
         ]
       },
       {
@@ -325,8 +331,19 @@ const schedule = [
         title: 'サーキュラーエコノミー\n～リーダー達の社会課題への取り組み方～',
         description: 'サーキュラーエコノミーで業界をリードする代表者が、食品廃棄物を利用したリサイクル事業や、容器リユースシェアリングサービス「Megloo」について話します。起業から運営までの実務経験を基に、起業のノウハウや業界の未来について伺います。社会課題に関心を持つ方にとって、次の一歩を踏み出すためのヒントに満ちた１時間です。',
         speakers: [
-          { name: '髙橋　巧一氏', organization: '株式会社日本フードエコロジーセンター', position: '代表取締役', info: '', image: './public/サーキュラーエコノミー高橋さん.png'},
-          { name: '善積 真吾氏', organization: '株式会社カマン', position: '代表取締役', info: '' }
+          { name: '髙橋　巧一氏', 
+            organization: '株式会社日本フードエコロジーセンター', 
+            position: '代表取締役',
+            info: '',
+            image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E3%82%B5%E3%83%BC%E3%82%AD%E3%83%A5%E3%83%A9%E3%83%BC%E3%82%A8%E3%82%B3%E3%83%8E%E3%83%9F%E3%83%BC%E9%AB%98%E6%A9%8B%E3%81%95%E3%82%93-rwY54wj8wXhIFEmeT5nSbu4eVerNd1.png'
+          },
+          { 
+            name: '善積 真吾氏', 
+            organization: '株式会社カマン', 
+            position: '代表取締役',
+            info: '',
+            image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E3%82%B5%E3%83%BC%E3%82%AD%E3%83%A5%E3%83%A9%E3%83%BC%E3%82%A8%E3%82%B3%E3%83%8E%E3%83%9F%E3%83%BC%E5%96%84%E7%A9%8D%E3%81%95%E3%82%93-UVwhXRCkrSGUrQ6Gc1JMw9DCWQoVTp.png'
+          }
         ]
       }
     ]
