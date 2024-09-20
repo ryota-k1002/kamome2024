@@ -299,7 +299,13 @@ const schedule = [
         title: '未病対策\n～神奈川県の未病対策の取り組み～',
         description: '神奈川県では、次世代社会システ厶「神奈川Me-BYOリビングラボ」の構築を進め、未病対策を推進しています。産官学連携で新たな価値や未病産業を創出し、持続可能な健康長寿社会の実現を目指しています。\nまた、神奈川県は全国に先駆けて神奈川発の未病産業の市場拡大を図るため、「ME-BYOサミット神奈川」を開催し、未病コンセプトやその改善の重要性を普及・啓発する活動を展開しており、未病における最新の取り組みについてもご紹介します。',
         speakers: [
-          { name: '成田 悠亜氏', organization: '神奈川県政策局', position: 'いのち・未来戦略本部 未病連携グループ 主任主事', info: '' }
+          { 
+            name: '成田 悠亜氏', 
+            organization: '神奈川県政策局', 
+            position: 'いのち・未来戦略本部 未病連携グループ 主任主事', 
+            info: '',
+            image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E6%9C%AA%E7%97%85%E5%AF%BE%E7%AD%96_%E6%88%90%E7%94%B0%E3%81%95%E3%82%93-ruFLmpULgm3pId3M0auwkLW2qFjZqe.png'
+          }
         ]
       }
     ]
