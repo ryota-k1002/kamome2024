@@ -205,31 +205,31 @@ const schedule = [
       {
         event: '全体会',
         title: '横浜の卒業生が語る、GLOBISや地域のつながりを活かした志の実現',
-        description: '横浜にゆかりのある4名の登壇者を迎え、起業や社会活動を通じて得た体験や、その背景にある志についてお話しいただくパネルディスカッションを開催します。在学中に意識していたこと、卒業後に感じていることなど、自己実現に向けた体験などを共有いただく場となります。参加者の皆さんにとって、新たな視点や一歩踏み出すためのヒントを得られる機会となるでしょう。',
+        description: '横浜にゆかりのある4名の登壇者を迎え、起業や社会活動を通じて得た体験や、その背景にある志についてお話しいただくパネルディスカッションを開催します。\n在学中に意識していたことや卒業後に感じていることなど、自己実現に向けての取り組みをお伝えします。\nネットワーキングの重要性や、コミュニティ形成の秘訣、そして予期せぬ出会いがもたらす価値についても掘り下げていきます。参加者の皆さまには、新たな視点や一歩を踏み出すためのきっかけを提供いたします。',
         speakers: [
           { 
-            name: '高野 俊行氏', 
-            organization: '元日揮ホールディングス\nユニクル株式会社', 
+            name: '高野 俊行氏 (GMBA2019期)', 
+            organization: 'ユニクル株式会社', 
             position: 'CEO', 
             info: '',
             image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E5%85%A8%E4%BD%93%E4%BC%9A_%E9%AB%98%E9%87%8E%E3%81%95%E3%82%93-uKJhmvh7QUzX65dpUjHR55I2p9ujmL.png'
           },
           { 
-            name: '大野 淳史氏', 
+            name: '大野 淳史氏 (GMBA2019期)', 
             organization: 'TOPPANホールディングス', 
             position: '事業開発本部ビジネスイノベーションセンター戦略投資部', 
             info: '',
             image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E5%85%A8%E4%BD%93%E4%BC%9A_%E5%A4%A7%E9%87%8E%E3%81%95%E3%82%93-BzXER9riCrQo5zkM5RP8sF2qPVeigV.png'
           },
           { 
-            name: '古野 直毅氏', 
+            name: '古野 直毅氏 (GMBA2021期)', 
             organization: 'フィクスコンシェル株式会社', 
             position: '代表取締役', 
             info: '',
             image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E5%85%A8%E4%BD%93%E4%BC%9A_%E5%8F%A4%E9%87%8E%E3%81%95%E3%82%93-NqdsHVghFJ0ydRRjXEmratt7bs4OMJ.png'
           },
           { 
-            name: '得能 淳氏', 
+            name: '得能 淳氏 (GMBA2017期)', 
             organization: 'グロービス経営大学院大学', 
             position: '特設キャンパス責任者(横浜・仙台・水戸)', 
             info: '',
@@ -253,8 +253,8 @@ const schedule = [
         description: '思いついたアイディアを他の人に話すの恥ずかしい‥や、そんなの前例ないし‥とか、うまくいかなかったらどうしよう‥、のように、新しいことへの挑戦は自分の中に勝手に作っている見えない壁が原因であることが多いです。上手くいかないながらも聴覚障害者向けの事業を進めてきた私の事例をもとに、それだったら自分もできるかも、言われてみたら自分だけが気にしているだけかも、など、少しでも見えない壁を取り除き、一歩踏み出すきっかけを一緒に見つけられるようなセッションをご提供します。',
         speakers: [
           { 
-            name: '岩田 佳子氏', 
-            organization: '株式会社リコー／グロービス本科2022期卒業生', 
+            name: '岩田 佳子氏 (GMBA2022期)', 
+            organization: '株式会社リコー', 
             position: '', 
             info: '',
             image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E6%96%B0%E8%A6%8F%E4%BA%8B%E6%A5%AD_%E5%B2%A9%E7%94%B0%E3%81%95%E3%82%93-uXFdwJ6pZEvHdz7iaUh2IFWk2PGTG4.png'
@@ -266,8 +266,8 @@ const schedule = [
         title: 'ヨコハマ未来創造会議\n～フードサーキュラーを起点に子どもの可能性を最大化するには？～',
         description: '2027年に横浜で開催される、GREEN×EXPO 2027（2027年国際園芸博覧会）を契機に、現在の大学生や企業の若手社員の若者が参加して、将来の社会についての議論、共感、自分ごとの醸成を目指す「ヨコハマ未来創造会議」が本年横浜市で立ち上がりました。\n全部で5つのプロジェクトが進行中で、その中の「フードサーキュラーを起点に子どもの可能性を最大化するには？」に取り組んでいるチームの発表を行っていただきます。キーワードは、#フードロス、＃貧困解決、＃学校給食。当日はプロジェクトの発表とともに、かもめ会議参加者と意見交換ができればと考えております。',
         speakers: [
-          { name: '榎 裕子氏', organization: 'ヨコハマ未来創造会議 メンバー', position: '', info: '', image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E3%83%A8%E3%82%B3%E3%83%8F%E3%83%9E%E6%9C%AA%E6%9D%A5%E4%BC%9A%E8%AD%B0_%E6%A6%8E%E3%81%95%E3%82%93-mQAcpSPen6tOaEiRAL8wIkWkiqZNVV.png' },
-          { name: '馬場 英鷹氏', organization: 'ヨコハマ未来創造会議 メンバー', position: '', info: '', image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E3%83%A8%E3%82%B3%E3%83%8F%E3%83%9E%E6%9C%AA%E6%9D%A5%E4%BC%9A%E8%AD%B0_%E9%A6%AC%E5%A0%B4%E3%81%95%E3%82%93-r56OjWtqO39IasrnkP0tTuxQuMUjQ0.png' }
+          { name: '榎 裕子氏 (2022期)', organization: 'ヨコハマ未来創造会議 メンバー', position: '', info: '', image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E3%83%A8%E3%82%B3%E3%83%8F%E3%83%9E%E6%9C%AA%E6%9D%A5%E4%BC%9A%E8%AD%B0_%E6%A6%8E%E3%81%95%E3%82%93-mQAcpSPen6tOaEiRAL8wIkWkiqZNVV.png' },
+          { name: '馬場 英鷹氏 (2021期)', organization: 'ヨコハマ未来創造会議 メンバー', position: '', info: '', image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E3%83%A8%E3%82%B3%E3%83%8F%E3%83%9E%E6%9C%AA%E6%9D%A5%E4%BC%9A%E8%AD%B0_%E9%A6%AC%E5%A0%B4%E3%81%95%E3%82%93-r56OjWtqO39IasrnkP0tTuxQuMUjQ0.png' }
         ]
       }
     ]
@@ -288,7 +288,7 @@ const schedule = [
           { 
             name: '宮本 早織氏', 
             organization: '面白法人カヤック', 
-            position: '地域資本主義事業部', 
+            position: '地域資本主義事業部 事業部長', 
             info: '',
             image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E5%9C%B0%E6%96%B9%E5%89%B5%E7%94%9F%E5%AE%AE%E6%9C%AC%E3%81%95%E3%82%93-YCLUEY7KLQFkc18vnuTqBKCNhcBOtg.png'
           }
@@ -296,7 +296,7 @@ const schedule = [
       },
       {
         event: '分科会D',
-        title: '未病対策\n～神奈川県の未病対策の取り組み～',
+        title: 'ヘルスケア最前線！未病対策！！\n～先進的な未病産業創出を推進する神奈川県～',
         description: '神奈川県では、次世代社会システ厶「神奈川Me-BYOリビングラボ」の構築を進め、未病対策を推進しています。産官学連携で新たな価値や未病産業を創出し、持続可能な健康長寿社会の実現を目指しています。\nまた、神奈川県は全国に先駆けて神奈川発の未病産業の市場拡大を図るため、「ME-BYOサミット神奈川」を開催し、未病コンセプトやその改善の重要性を普及・啓発する活動を展開しており、未病における最新の取り組みについてもご紹介します。',
         speakers: [
           { 
@@ -335,7 +335,7 @@ const schedule = [
       {
         event: '分科会F',
         title: 'サーキュラーエコノミー\n～リーダー達の社会課題への取り組み方～',
-        description: 'サーキュラーエコノミーで業界をリードする代表者が、食品廃棄物を利用したリサイクル事業や、容器リユースシェアリングサービス「Megloo」について話します。起業から運営までの実務経験を基に、起業のノウハウや業界の未来について伺います。社会課題に関心を持つ方にとって、次の一歩を踏み出すためのヒントに満ちた１時間です。',
+        description: 'サーキュラーエコノミーで業界をリードする2名の代表者が、食品廃棄物を利用したリサイクル事業や、容器リユースシェアリングサービス「Megloo」について話します。各社の起業から運営までの実務経験を基に、起業のノウハウや業界の未来について伺います。社会課題に関心を持つ方にとって、次の一歩を踏み出すためのヒントに満ちた１時間です。',
         speakers: [
           { name: '髙橋 巧一氏', 
             organization: '株式会社日本フードエコロジーセンター', 
