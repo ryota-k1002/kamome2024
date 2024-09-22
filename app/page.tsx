@@ -288,7 +288,7 @@ const schedule = [
           { 
             name: '宮本 早織氏', 
             organization: '面白法人カヤック', 
-            position: '地域資本主義事業部 事業部長', 
+            position: 'ちいき資本主義事業部 事業部長', 
             info: '',
             image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E5%9C%B0%E6%96%B9%E5%89%B5%E7%94%9F%E5%AE%AE%E6%9C%AC%E3%81%95%E3%82%93-YCLUEY7KLQFkc18vnuTqBKCNhcBOtg.png'
           }
