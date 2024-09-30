@@ -393,7 +393,7 @@ const EventPopup: React.FC<EventPopupProps> = ({ session, eventType, startTime, 
           </span>
           {session.soldOut && (
             <span className="absolute top-2 right-2 bg-red-500 text-white px-2 py-1 rounded-full text-xs font-bold">
-              満員
+              満員御礼
             </span>
           )}
           <h3 className="text-xl font-bold mb-2 break-words whitespace-pre-line">{session.title}</h3>
