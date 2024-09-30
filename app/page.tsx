@@ -279,6 +279,7 @@ const schedule = [
     event: '分科会2',
     type: 'breakout',
     duration: '(60min.)',
+    soldOut: true, // この行を追加
     sessions: [
       {
         event: '分科会C',
@@ -389,6 +390,11 @@ const EventPopup: React.FC<EventPopupProps> = ({ session, eventType, startTime, 
           <span className={`inline-block px-2 py-1 rounded-full text-xs font-semibold mb-2 ${eventType === 'plenary' ? 'bg-[#ffde59] text-[#545454]' : 'bg-[#ffde59] text-[#545454]'}`}>
             {session.event}
           </span>
+          {session.soldOut && (
+            <span className="absolute top-2 right-2 bg-red-500 text-white px-2 py-1 rounded-full text-xs font-bold">
+              満員
+            </span>
+          )}
           <h3 className="text-xl font-bold mb-2 break-words whitespace-pre-line">{session.title}</h3>
           <p className="text-sm text-gray-600">{session.speakers.map(speaker => speaker.name).join(' / ')}</p>
           <div className="absolute bottom-0 right-0 w-0 h-0 border-l-[40px] border-l-transparent border-b-[40px] border-b-[#79a7b6] rounded-br-lg"></div>
@@ -406,6 +412,11 @@ const EventPopup: React.FC<EventPopupProps> = ({ session, eventType, startTime, 
         </DialogHeader>
         <div className="mt-4 bg-gray-100 p-4 rounded-lg">
           <DialogTitle className="text-xl font-bold mb-4 whitespace-pre-line">{session.title}</DialogTitle>
+          {session.soldOut && (
+            <p className="mb-4 text-red-500 font-bold">
+              ※ この分科会は満員につき締切となりました。ご了承ください。
+            </p>
+          )}
           <p className="mb-4 whitespace-pre-line">{session.description}</p>
           <div className="space-y-2">
             {session.speakers.map((speaker, speakerIndex) => (

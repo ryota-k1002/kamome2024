@@ -169,7 +169,7 @@ const FloatingHeader = () => {
   return (
     <header className="fixed top-0 left-0 right-0 z-50">
       <div className="bg-white shadow-md">
-        <div className="container mx-auto px-4 py-4 flex justify-between items-center">
+        <div className="container mx-auto px-4 py-4 flex justify-between items-center max-w-6xl">
           <div className={`w-48 h-20 transition-opacity duration-300 ${showLogo ? 'opacity-100' : 'opacity-0'}`}>
             <Image
               src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/kamome_logo_padding-VBJ3I4qnKZ8Fa7oZLYgwD1xvXWtFf8.png"
@@ -205,31 +205,31 @@ const schedule = [
       {
         event: '全体会',
         title: '横浜の卒業生が語る、GLOBISや地域のつながりを活かした志の実現',
-        description: '横浜にゆかりのある4名の登壇者を迎え、起業や社会活動を通じて得た体験や、その背景にある志についてお話しいただくパネルディスカッションを開催します。在学中に意識していたこと、卒業後に感じていることなど、自己実現に向けた体験などを共有いただく場となります。参加者の皆さんにとって、新たな視点や一歩踏み出すためのヒントを得られる機会となるでしょう。',
+        description: '横浜にゆかりのある4名の登壇者を迎え、起業や社会活動を通じて得た体験や、その背景にある志についてお話しいただくパネルディスカッションを開催します。\n在学中に意識していたことや卒業後に感じていることなど、自己実現に向けての取り組みをお伝えします。\nネットワーキングの重要性や、コミュニティ形成の秘訣、そして予期せぬ出会いがもたらす価値についても掘り下げていきます。参加者の皆さまには、新たな視点や一歩を踏み出すためのきっかけを提供いたします。',
         speakers: [
           { 
-            name: '高野 俊行氏', 
-            organization: '元日揮ホールディングス\nユニクル株式会社', 
+            name: '高野 俊行氏 (GMBA2019期)', 
+            organization: 'ユニクル株式会社', 
             position: 'CEO', 
             info: '',
             image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E5%85%A8%E4%BD%93%E4%BC%9A_%E9%AB%98%E9%87%8E%E3%81%95%E3%82%93-uKJhmvh7QUzX65dpUjHR55I2p9ujmL.png'
           },
           { 
-            name: '大野 淳史氏', 
+            name: '大野 淳史氏 (GMBA2019期)', 
             organization: 'TOPPANホールディングス', 
             position: '事業開発本部ビジネスイノベーションセンター戦略投資部', 
             info: '',
             image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E5%85%A8%E4%BD%93%E4%BC%9A_%E5%A4%A7%E9%87%8E%E3%81%95%E3%82%93-BzXER9riCrQo5zkM5RP8sF2qPVeigV.png'
           },
           { 
-            name: '古野 直毅氏', 
+            name: '古野 直毅氏 (GMBA2021期)', 
             organization: 'フィクスコンシェル株式会社', 
             position: '代表取締役', 
             info: '',
             image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E5%85%A8%E4%BD%93%E4%BC%9A_%E5%8F%A4%E9%87%8E%E3%81%95%E3%82%93-NqdsHVghFJ0ydRRjXEmratt7bs4OMJ.png'
           },
           { 
-            name: '得能 淳氏', 
+            name: '得能 淳氏 (GMBA2017期)', 
             organization: 'グロービス経営大学院大学', 
             position: '特設キャンパス責任者(横浜・仙台・水戸)', 
             info: '',
@@ -253,8 +253,8 @@ const schedule = [
         description: '思いついたアイディアを他の人に話すの恥ずかしい‥や、そんなの前例ないし‥とか、うまくいかなかったらどうしよう‥、のように、新しいことへの挑戦は自分の中に勝手に作っている見えない壁が原因であることが多いです。上手くいかないながらも聴覚障害者向けの事業を進めてきた私の事例をもとに、それだったら自分もできるかも、言われてみたら自分だけが気にしているだけかも、など、少しでも見えない壁を取り除き、一歩踏み出すきっかけを一緒に見つけられるようなセッションをご提供します。',
         speakers: [
           { 
-            name: '岩田 佳子氏', 
-            organization: '株式会社リコー／グロービス本科2022期卒業生', 
+            name: '岩田 佳子氏 (GMBA2022期)', 
+            organization: '株式会社リコー', 
             position: '', 
             info: '',
             image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E6%96%B0%E8%A6%8F%E4%BA%8B%E6%A5%AD_%E5%B2%A9%E7%94%B0%E3%81%95%E3%82%93-uXFdwJ6pZEvHdz7iaUh2IFWk2PGTG4.png'
@@ -266,8 +266,8 @@ const schedule = [
         title: 'ヨコハマ未来創造会議\n～フードサーキュラーを起点に子どもの可能性を最大化するには？～',
         description: '2027年に横浜で開催される、GREEN×EXPO 2027（2027年国際園芸博覧会）を契機に、現在の大学生や企業の若手社員の若者が参加して、将来の社会についての議論、共感、自分ごとの醸成を目指す「ヨコハマ未来創造会議」が本年横浜市で立ち上がりました。\n全部で5つのプロジェクトが進行中で、その中の「フードサーキュラーを起点に子どもの可能性を最大化するには？」に取り組んでいるチームの発表を行っていただきます。キーワードは、#フードロス、＃貧困解決、＃学校給食。当日はプロジェクトの発表とともに、かもめ会議参加者と意見交換ができればと考えております。',
         speakers: [
-          { name: '榎 裕子氏', organization: 'ヨコハマ未来創造会議 メンバー', position: '', info: '', image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E3%83%A8%E3%82%B3%E3%83%8F%E3%83%9E%E6%9C%AA%E6%9D%A5%E4%BC%9A%E8%AD%B0_%E6%A6%8E%E3%81%95%E3%82%93-mQAcpSPen6tOaEiRAL8wIkWkiqZNVV.png' },
-          { name: '馬場 英鷹氏', organization: 'ヨコハマ未来創造会議 メンバー', position: '', info: '', image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E3%83%A8%E3%82%B3%E3%83%8F%E3%83%9E%E6%9C%AA%E6%9D%A5%E4%BC%9A%E8%AD%B0_%E9%A6%AC%E5%A0%B4%E3%81%95%E3%82%93-r56OjWtqO39IasrnkP0tTuxQuMUjQ0.png' }
+          { name: '榎 裕子氏 (GMBA2022期)', organization: 'ヨコハマ未来創造会議 メンバー', position: '', info: '', image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E3%83%A8%E3%82%B3%E3%83%8F%E3%83%9E%E6%9C%AA%E6%9D%A5%E4%BC%9A%E8%AD%B0_%E6%A6%8E%E3%81%95%E3%82%93-mQAcpSPen6tOaEiRAL8wIkWkiqZNVV.png' },
+          { name: '馬場 英鷹氏 (GMBA2021期)', organization: 'ヨコハマ未来創造会議 メンバー', position: '', info: '', image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E3%83%A8%E3%82%B3%E3%83%8F%E3%83%9E%E6%9C%AA%E6%9D%A5%E4%BC%9A%E8%AD%B0_%E9%A6%AC%E5%A0%B4%E3%81%95%E3%82%93-r56OjWtqO39IasrnkP0tTuxQuMUjQ0.png' }
         ]
       }
     ]
@@ -282,18 +282,30 @@ const schedule = [
     sessions: [
       {
         event: '分科会C',
-        title: '地方創生\n～鎌倉から地方創成を生み出す地域企業について～',
-        description: '鎌倉市に拠点を構え、神奈川県の地方創生だけではなく、全国の地域や企業と連携し、地方創生の道を切り拓く同社。全国では様々な企業が各自治体と地方創生に向けた活動を進める中で、同社として地方創生を進める上での難所やどんな想いで従業員が各プロジェクトを進めてきたのかを具体的なプロジェクトをもとにお話を伺いたいと思います。',
+        title: '地方創生\n～鎌倉から地方創生を生み出す地域企業について～',
+        description: '鎌倉市に拠点を構え、神奈川県の地方創生だけではなく、全国の地域や企業と連携し、地域活性化、移住者の促進や関係人口創出に繋がるプロジェクトを手掛ける同社。今回ご登壇いただく宮本氏は、前職の編集者から同社に転職され、現在はちいき資本主義事業部の事業部長を担っておられます。同社がこれまで手掛けたきたプロジェクトの紹介に加え、宮本氏がどのような想いを持ち、全国の地域創生を進めているのかについてもお話いただきます。',
         speakers: [
-          { name: '宮本 早織氏', organization: '面白法人カヤック', position: '地域資本主義事業部', info: '' }
+          { 
+            name: '宮本 早織氏', 
+            organization: '面白法人カヤック', 
+            position: 'ちいき資本主義事業部 事業部長', 
+            info: '',
+            image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E5%9C%B0%E6%96%B9%E5%89%B5%E7%94%9F%E5%AE%AE%E6%9C%AC%E3%81%95%E3%82%93-YCLUEY7KLQFkc18vnuTqBKCNhcBOtg.png'
+          }
         ]
       },
       {
         event: '分科会D',
-        title: '未病対策\n～神奈川県の未病対策の取り組み～',
+        title: 'ヘルスケア最前線！未病対策！！\n～先進的な未病産業創出を推進する神奈川県～',
         description: '神奈川県では、次世代社会システ厶「神奈川Me-BYOリビングラボ」の構築を進め、未病対策を推進しています。産官学連携で新たな価値や未病産業を創出し、持続可能な健康長寿社会の実現を目指しています。\nまた、神奈川県は全国に先駆けて神奈川発の未病産業の市場拡大を図るため、「ME-BYOサミット神奈川」を開催し、未病コンセプトやその改善の重要性を普及・啓発する活動を展開しており、未病における最新の取り組みについてもご紹介します。',
         speakers: [
-          { name: '成田 悠亜氏', organization: '神奈川県政策局', position: 'いのち・未来戦略本部 未病連携グループ 主任主事', info: '' }
+          { 
+            name: '成田 悠亜氏', 
+            organization: '神奈川県政策局', 
+            position: 'いのち・未来戦略本部 未病連携グループ 主任主事', 
+            info: '',
+            image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E6%9C%AA%E7%97%85%E5%AF%BE%E7%AD%96_%E6%88%90%E7%94%B0%E3%81%95%E3%82%93-ruFLmpULgm3pId3M0auwkLW2qFjZqe.png'
+          }
         ]
       }
     ]
@@ -323,9 +335,21 @@ const schedule = [
       {
         event: '分科会F',
         title: 'サーキュラーエコノミー\n～リーダー達の社会課題への取り組み方～',
-        description: 'サーキュラーエコノミーで業界をリードする代表者が、食品廃棄物を利用したリサイクル事業や、容器リユースシェアリングサービス「Megloo」について話します。起業から運営までの実務経験を基に、起業のノウハウや業界の未来について伺います。社会課題に関心を持つ方にとって、次の一歩を踏み出すためのヒントに満ちた１時間です。',
+        description: 'サーキュラーエコノミーで業界をリードする2名の代表者が、食品廃棄物を利用したリサイクル事業や、容器リユースシェアリングサービス「Megloo」について話します。各社の起業から運営までの実務経験を基に、起業のノウハウや業界の未来について伺います。社会課題に関心を持つ方にとって、次の一歩を踏み出すためのヒントに満ちた１時間です。',
         speakers: [
-          { name: '善積 真吾氏', organization: '株式会社カマン', position: 'FOUNDER & CEO', info: '' }
+          { name: '髙橋 巧一氏', 
+            organization: '株式会社日本フードエコロジーセンター', 
+            position: '代表取締役',
+            info: '',
+            image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E3%82%B5%E3%83%BC%E3%82%AD%E3%83%A5%E3%83%A9%E3%83%BC%E3%82%A8%E3%82%B3%E3%83%8E%E3%83%9F%E3%83%BC%E9%AB%98%E6%A9%8B%E3%81%95%E3%82%93-rwY54wj8wXhIFEmeT5nSbu4eVerNd1.png'
+          },
+          { 
+            name: '善積 真吾氏', 
+            organization: '株式会社カマン', 
+            position: '代表取締役',
+            info: '',
+            image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E3%82%B5%E3%83%BC%E3%82%AD%E3%83%A5%E3%83%A9%E3%83%BC%E3%82%A8%E3%82%B3%E3%83%8E%E3%83%9F%E3%83%BC%E5%96%84%E7%A9%8D%E3%81%95%E3%82%93-UVwhXRCkrSGUrQ6Gc1JMw9DCWQoVTp.png'
+          }
         ]
       }
     ]
@@ -440,7 +464,7 @@ export default function LandingPage() {
         <HeroSection timeLeft={timeLeft} />
 
         <section id="about" className="py-20 bg-white">
-          <div className="container mx-auto px-4">
+          <div className="container mx-auto px-4 max-w-6xl">
             <h2 className="text-3xl font-bold mb-8 text-center">ABOUT</h2>
             <div className="mb-8">
               <h3 className="text-3xl font-bold text-[#79a7b6] text-center mb-6">
@@ -452,7 +476,9 @@ export default function LandingPage() {
             </p>
             <ul className="list-disc pl-6 mb-6 space-y-2">
               <li><strong>起業家精神の真髄に触れる：</strong> 横浜ゆかりの起業家たちが、失敗を恐れず挑戦する勇気をリアルな体験とともに伝授。</li>
-              <li><strong>社会課題へのアプローチを学ぶ：</strong> 未病対策やサーキュラーエコノミーなど、今注目の分野で活躍する実務者から最前線の取り組みを聞く。</li>
+              <li><strong>社会課題へのアプローチを学ぶ：</strong> 未病対策やサーキュラーエコノミーなど、今注目の分野で活躍する実務者から最前線の取り組み
+
+を聞く。</li>
               <li><strong>未来を創る仲間と出会う：</strong> 「ヨコハマ未来創造会議」のような、次世代を担う若者たちの斬新な発想に触れ、刺激を得る。</li>
               <li><strong>意外なキャリアの可能性を発見：</strong> 宇宙ビジネスやフードテック、地方創生など、思わぬところにあなたのスキルが活きるチャンスが。</li>
             </ul>
@@ -463,7 +489,7 @@ export default function LandingPage() {
         </section>
 
         <section id="timetable" className="py-20 bg-[#f4f4f4]">
-          <div className="container mx-auto px-4">
+          <div className="container mx-auto px-4 max-w-6xl">
             <h2 className="text-3xl font-bold mb-8 text-center">TIME TABLE</h2>
             <div className="space-y-4 relative">
               <div className="absolute left-1/2 top-0 bottom-0 w-px bg-gray-300 transform -translate-x-1/2"></div>
@@ -502,7 +528,7 @@ export default function LandingPage() {
         </section>
 
         <section id="registration" className="py-20 bg-white">
-          <div className="container mx-auto px-4">
+          <div className="container mx-auto px-4 max-w-6xl">
             <h2 className="text-3xl font-bold mb-8 text-center">参加申し込み</h2>
             <div className="bg-[#f4f4f4] p-6 rounded-lg shadow-md mb-8">
               <h3 className="text-xl font-bold mb-4">申し込み方法</h3>
@@ -544,7 +570,7 @@ export default function LandingPage() {
         </section>
 
         <section className="py-20 bg-[#f4f4f4]">
-          <div className="container mx-auto px-4">
+          <div className="container mx-auto px-4 max-w-6xl">
             <h2 className="text-3xl font-bold mb-8 text-center">開催概要</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div className="bg-white p-6 rounded-lg shadow-md">
@@ -590,7 +616,7 @@ export default function LandingPage() {
       </main>
 
       <footer className="bg-[#545454] text-white py-8">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 max-w-6xl">
           <div className="text-center">
             <p>
               お問い合わせ: <a href="mailto:kamome_2024.stu@globis.ac.jp" className="hover:underline">kamome_2024.stu@globis.ac.jp</a>
