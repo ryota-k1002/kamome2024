@@ -372,6 +372,7 @@ type Session = {
   title: string;
   description: string;
   speakers: Speaker[];
+  soldOut?: boolean;
 };
 
 type EventPopupProps = {
