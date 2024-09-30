@@ -415,7 +415,7 @@ const EventPopup: React.FC<EventPopupProps> = ({ session, eventType, startTime, 
           <DialogTitle className="text-xl font-bold mb-4 whitespace-pre-line">{session.title}</DialogTitle>
           {session.soldOut && (
             <p className="mb-4 text-red-500 font-bold">
-              ※ この分科会は満員につき締切となりました。ご了承ください。
+              ※ こちらこの分科会は満員につき締切となりました。ご了承ください。
             </p>
           )}
           <p className="mb-4 whitespace-pre-line">{session.description}</p>
