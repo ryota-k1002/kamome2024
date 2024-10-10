@@ -3,7 +3,7 @@
 import Image from 'next/image'
 import { useState, useEffect, useRef } from 'react'
 import { Button } from "@/components/ui/button"
-import { Calendar, MapPin, ExternalLink, Facebook, Building2, User } from 'lucide-react'
+import { Calendar, MapPin, ExternalLink, Facebook, Building2, User, AlertTriangle } from 'lucide-react'
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
 
 const WaveAndBirdAnimation = () => {
@@ -138,6 +138,10 @@ const HeroSection = ({ timeLeft }: { timeLeft: { days: number; hours: number; mi
             <FlipCard value={timeLeft.minutes.toString().padStart(2, '0')} label="MINUTES" />
             <FlipCard value={timeLeft.seconds.toString().padStart(2, '0')} label="SECONDS" />
           </div>
+        </div>
+        <div className="mb-6 flex items-center justify-center bg-red-100 border-l-4 border-red-500 text-red-700 p-4 rounded-lg">
+          <AlertTriangle className="mr-2" />
+          <p className="text-sm font-medium">残席わずか！お早めにお申し込みください。</p>
         </div>
         <button 
           onClick={handleScrollToRegistration}
