@@ -3,7 +3,6 @@
 import Image from 'next/image'
 import { useState, useEffect, useRef } from 'react'
 import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
 import { Calendar, MapPin, ExternalLink, Facebook, Building2, User, AlertTriangle } from 'lucide-react'
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
 
@@ -549,41 +548,39 @@ export default function LandingPage() {
         <section id="registration" className="py-20 bg-white">
       <div className="container mx-auto px-4 max-w-6xl">
         <h2 className="text-3xl font-bold mb-8 text-center">参加申し込み</h2>
-        <Card className="bg-[#f4f4f4] p-6 rounded-lg shadow-md mb-8">
-          <CardContent>
-            <h3 className="text-xl font-bold mb-4">申し込み状況</h3>
-            <div className="bg-red-100 border-l-4 border-red-500 text-red-700 p-4 mb-6 rounded-lg">
-              <p className="font-bold flex items-center">
-                <AlertTriangle className="mr-2" />
-                チケット完売のお知らせ
-              </p>
-              <p>多数のお申し込みをいただき、誠にありがとうございました。おかげさまで、チケットは完売いたしました。</p>
-            </div>
-
-            <h4 className="text-lg font-bold mb-2">キャンセル待ちについて</h4>
-            <p className="mb-4">現在、キャンセル待ちの受付は行っておりません。ご了承ください。</p>
-
-            <h4 className="text-lg font-bold mb-2">今後のイベント情報</h4>
-            <p className="mb-4">今後のイベント情報については、公式SNSアカウントやメールマガジンにてお知らせいたします。</p>
-
-            <h4 className="text-lg font-bold mb-2">お問い合わせ</h4>
-            <p className="mb-1">かもめ会議運営事務局</p>
-            <p className="mb-4">
-              <a href="mailto:kamome_2024.stu@globis.ac.jp" className="text-blue-600 hover:underline">
-                kamome_2024.stu@globis.ac.jp
-              </a>
+        <div className="bg-[#f4f4f4] p-6 rounded-lg shadow-md mb-8">
+          <h3 className="text-xl font-bold mb-4">申し込み状況</h3>
+          <div className="bg-red-100 border-l-4 border-red-500 text-red-700 p-4 mb-6 rounded-lg">
+            <p className="font-bold flex items-center">
+              <AlertTriangle className="mr-2" />
+              チケット完売のお知らせ
             </p>
+            <p>多数のお申し込みをいただき、誠にありがとうございました。おかげさまで、チケットは完売いたしました。</p>
+          </div>
 
-            <div className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4 mt-6">
-              <Button className="bg-gray-400 text-white cursor-not-allowed" disabled>
-                チケット販売終了
-              </Button>
-              <Button className="bg-gray-400 text-white cursor-not-allowed" disabled>
-                セッション申し込み終了
-              </Button>
-            </div>
-          </CardContent>
-        </Card>
+          <h4 className="text-lg font-bold mb-2">キャンセル待ちについて</h4>
+          <p className="mb-4">現在、キャンセル待ちの受付は行っておりません。ご了承ください。</p>
+
+          <h4 className="text-lg font-bold mb-2">今後のイベント情報</h4>
+          <p className="mb-4">今後のイベント情報については、公式SNSアカウントやメールマガジンにてお知らせいたします。</p>
+
+          <h4 className="text-lg font-bold mb-2">お問い合わせ</h4>
+          <p className="mb-1">かもめ会議運営事務局</p>
+          <p className="mb-4">
+            <a href="mailto:kamome_2024.stu@globis.ac.jp" className="text-blue-600 hover:underline">
+              kamome_2024.stu@globis.ac.jp
+            </a>
+          </p>
+
+          <div className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4 mt-6">
+            <button className="bg-gray-400 text-white px-4 py-2 rounded cursor-not-allowed" disabled>
+              チケット販売終了
+            </button>
+            <button className="bg-gray-400 text-white px-4 py-2 rounded cursor-not-allowed" disabled>
+              セッション申し込み終了
+            </button>
+          </div>
+        </div>
       </div>
     </section>
 
