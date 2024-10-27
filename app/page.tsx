@@ -138,9 +138,9 @@ const HeroSection = ({ timeLeft }: { timeLeft: { days: number; hours: number; mi
             <FlipCard value={timeLeft.seconds.toString().padStart(2, '0')} label="SECONDS" />
           </div>
         </div>
-        <div className="mb-6 bg-red-600 text-white py-2 px-4 rounded-full font-semibold flex items-center">
-          <AlertTriangle className="w-5 h-5 mr-2" />
-          チケットは完売いたしました
+        <div className="mb-6 bg-red-100 text-red-800 py-2 px-4 rounded-full font-semibold flex items-center border-2 border-red-500">
+          <AlertTriangle className="w-5 h-5 mr-2 text-red-600" />
+          チケットは完売しました
         </div>
         <button 
           onClick={handleScrollToRegistration}
