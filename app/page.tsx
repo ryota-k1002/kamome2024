@@ -288,7 +288,7 @@ const schedule = [
         event: '分科会C',
         title: '地方創生\n～鎌倉から地方創生を生み出す地域企業について～',
         description: '鎌倉市に拠点を構え、神奈川県の地方創生だけではなく、全国の地域や企業と連携し、地域活性化、移住者の促進や関係人口創出に繋がるプロジェクトを手掛ける同社。今回ご登壇いただく宮本氏は、前職の編集者から同社に転職され、現在はちいき資本主義事業部の事業部長を担っておられます。同社がこれまで手掛けたきたプロジェクトの紹介に加え、宮本氏がどのような想いを持ち、全国の地域創生を進めているのかについてもお話いただきます。',
-        soldOut: true, // この行を追加
+        //soldOut: true, // この行を追加
         speakers: [
           { 
             name: '宮本 早織氏', 
@@ -341,7 +341,7 @@ const schedule = [
         event: '分科会F',
         title: 'サーキュラーエコノミー\n～リーダー達の社会課題への取り組み方～',
         description: 'サーキュラーエコノミーで業界をリードする2名の代表者が、食品廃棄物を利用したリサイクル事業や、容器リユースシェアリングサービス「Megloo」について話します。各社の起業から運営までの実務経験を基に、起業のノウハウや業界の未来について伺います。社会課題に関心を持つ方にとって、次の一歩を踏み出すためのヒントに満ちた１時間です。',
-        soldOut: true, // この行を追加
+        //soldOut: true, // この行を追加
         speakers: [
           { name: '髙橋 巧一氏', 
             organization: '株式会社日本フードエコロジーセンター', 
@@ -554,14 +554,14 @@ export default function LandingPage() {
               <AlertTriangle className="mr-2" />
               チケット完売のお知らせ
             </p>
-            <p>多数のお申し込みをいただき、誠にありがとうございました。おかげさまで、チケットは完売いたしました。</p>
+            <p>多数のお申し込みをいただき誠にありがとうございます。</p>
+            <p>かもめ会議2024は全席完売となりました。</p>
           </div>
 
-          <h4 className="text-lg font-bold mb-2">キャンセル待ちについて</h4>
-          <p className="mb-4">現在、キャンセル待ちの受付は行っておりません。ご了承ください。</p>
-
-          <h4 className="text-lg font-bold mb-2">今後のイベント情報</h4>
-          <p className="mb-4">今後のイベント情報については、公式SNSアカウントやメールマガジンにてお知らせいたします。</p>
+          <h4 className="text-lg font-bold mb-2">購入済みチケットについて</h4>
+          <p className="mb-4">受付完了後のキャンセル・返金はできません。ただし、チケットの譲渡は可能です。 </p>
+          <p className="mb-4">譲渡する際はPeatixのシステム上で譲渡の申請をお願いします。</p>
+          <p className="mb-4">尚、当事者間の譲渡に関しては運営事務局は一切の責任を負いかねます。</p>
 
           <h4 className="text-lg font-bold mb-2">お問い合わせ</h4>
           <p className="mb-1">かもめ会議運営事務局</p>
@@ -573,10 +573,10 @@ export default function LandingPage() {
 
           <div className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4 mt-6">
             <button className="bg-gray-400 text-white px-4 py-2 rounded cursor-not-allowed" disabled>
-              チケット販売終了
+              チケット購入
             </button>
             <button className="bg-gray-400 text-white px-4 py-2 rounded cursor-not-allowed" disabled>
-              セッション申し込み終了
+              セッション申し込み
             </button>
           </div>
         </div>
