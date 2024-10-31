@@ -561,7 +561,7 @@ export default function LandingPage() {
             </p>
             <p>多数のお申し込みをいただき誠にありがとうございます。</p>
             <p>かもめ会議2024は全席完売となりました。</p>
-            <p>次回の開催をご期待ください♪</p>
+            <p>次回の開催をご期待ください。</p>
           </div>
 
           <h4 className="text-lg font-bold mb-2">購入済みチケットについて</h4>
