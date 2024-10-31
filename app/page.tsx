@@ -142,6 +142,11 @@ const HeroSection = ({ timeLeft }: { timeLeft: { days: number; hours: number; mi
           <AlertTriangle className="w-5 h-5 mr-2 text-red-600" />
           チケットは完売しました
         </div>
+        <div className="mb-6 bg-yellow-300 text-red-800 py-2 px-6 rounded-full font-bold flex items-center animate-bounce">
+          <span className="mr-2">🎉</span>
+          次回の開催をご期待ください
+          <span className="ml-2">🎉</span>
+        </div>
         <button 
           onClick={handleScrollToRegistration}
           className="bg-gray-400 text-white px-8 py-3 rounded-full font-semibold cursor-not-allowed"
@@ -556,6 +561,7 @@ export default function LandingPage() {
             </p>
             <p>多数のお申し込みをいただき誠にありがとうございます。</p>
             <p>かもめ会議2024は全席完売となりました。</p>
+            <p>次回の開催をご期待ください♪</p>
           </div>
 
           <h4 className="text-lg font-bold mb-2">購入済みチケットについて</h4>
