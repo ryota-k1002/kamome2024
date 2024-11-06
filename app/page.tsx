@@ -1,6 +1,7 @@
 'use client'
 
 import Image from 'next/image'
+import furunoImage from '@/app/images/speakers/古野直毅氏.png'
 import { useState, useEffect, useRef } from 'react'
 import { Calendar, MapPin, ExternalLink, Facebook, Building2, User, AlertTriangle } from 'lucide-react'
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
@@ -235,7 +236,7 @@ const schedule = [
             organization: 'フィクスコンシェル株式会社', 
             position: '代表取締役', 
             info: '',
-            image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E5%85%A8%E4%BD%93%E4%BC%9A_%E5%8F%A4%E9%87%8E%E3%81%95%E3%82%93-NqdsHVghFJ0ydRRjXEmratt7bs4OMJ.png'
+            image: furunoImage
           },
           { 
             name: '得能 淳氏 (GMBA2017期)', 
