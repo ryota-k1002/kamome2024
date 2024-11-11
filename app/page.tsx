@@ -138,13 +138,10 @@ const HeroSection = ({ timeLeft }: { timeLeft: { days: number; hours: number; mi
             <FlipCard value={timeLeft.seconds.toString().padStart(2, '0')} label="SECONDS" />
           </div>
         </div>
-        <div className="mb-6 bg-red-100 text-red-800 py-2 px-4 rounded-full font-semibold flex items-center border-2 border-red-500">
-          <AlertTriangle className="w-5 h-5 mr-2 text-red-600" />
-          チケットは完売しました
-        </div>
         <div className="mb-6 bg-yellow-300 text-red-800 py-2 px-6 rounded-full font-bold flex items-center animate-bounce">
           <span className="mr-2">🎉</span>
-          次回の開催をご期待ください
+          かもめ会議2024は大盛況のうちに終了いたしました。
+          次回のかもめ会議でお会いしましょう
           <span className="ml-2">🎉</span>
         </div>
         <button 
