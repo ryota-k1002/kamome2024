@@ -59,50 +59,45 @@ const HeroAnimation = () => {
   }, []);
 
   return (
-    <div className="absolute inset-x-[-20%] sm:inset-x-0 inset-y-0 w-[140%] sm:w-full h-full overflow-hidden">
-      {/* 背景画像を画面幅によって切り替え */}
+    <div className="absolute inset-0 w-full h-full">
       <picture>
         <source media="(min-width: 640px)" srcSet="/bg-pc.png" />
         <img
           src="/bg.png"
           alt=""
-          className="absolute inset-0 w-full h-full object-contain"
+          className="absolute top-0 left-1/2 -translate-x-1/2 h-full w-auto min-w-full object-none"
           aria-hidden="true"
         />
       </picture>
       
-      {/* Wave layer - animated */}
       <img
         ref={waveRef}
         src="/wave.png"
         alt=""
-        className="absolute inset-0 w-full h-full object-contain"
+        className="absolute top-0 left-1/2 -translate-x-1/2 h-full w-auto min-w-full object-none"
         aria-hidden="true"
       />
       
-      {/* Cloud layer - animated */}
       <img
         ref={cloudRef}
         src="/cloud.png"
         alt=""
-        className="absolute inset-0 w-full h-full object-contain"
+        className="absolute top-0 left-1/2 -translate-x-1/2 h-full w-auto min-w-full object-none"
         aria-hidden="true"
       />
       
-      {/* Seagull layer - animated */}
       <img
         ref={seagullRef}
         src="/seagull.png"
         alt=""
-        className="absolute inset-0 w-full h-full object-contain"
+        className="absolute top-0 left-1/2 -translate-x-1/2 h-full w-auto min-w-full object-none"
         aria-hidden="true"
       />
 
-      {/* Top overlay - static */}
       <img
         src="/top.png"
         alt=""
-        className="absolute inset-0 w-full h-full object-contain"
+        className="absolute top-0 left-1/2 -translate-x-1/2 h-full w-auto min-w-full object-none"
         aria-hidden="true"
       />
     </div>
