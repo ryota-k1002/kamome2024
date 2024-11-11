@@ -59,7 +59,7 @@ const HeroAnimation = () => {
   }, []);
 
   return (
-    <div className="absolute inset-x-[-40%] sm:inset-x-0 inset-y-0 w-[140%] sm:w-full h-full overflow-hidden">
+    <div className="absolute inset-0 w-full h-full overflow-hidden">
       {/* 背景画像を画面幅によって切り替え */}
       <picture>
         <source media="(min-width: 640px)" srcSet="/bg-pc.png" />
