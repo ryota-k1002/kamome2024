@@ -15,8 +15,8 @@ const HeroAnimation = () => {
     const animateSeagull = () => {
       if (!seagullRef.current) return;
       const time = Date.now() / 1000;
-      const swing = Math.sin(time) * 20;
-      seagullRef.current.style.transform = `translateX(${swing}px) translateY(${Math.abs(swing/2)}px)`;
+      const swing = Math.sin(time) * 15;
+      seagullRef.current.style.transform = `translateX(${swing}px) translateY(${Math.abs(swing/4)}px)`;
       requestAnimationFrame(animateSeagull);
     };
 
@@ -24,8 +24,8 @@ const HeroAnimation = () => {
     const animateCloud = () => {
       if (!cloudRef.current) return;
       const time = Date.now() / 2000;
-      const float = Math.sin(time) * 15;
-      cloudRef.current.style.transform = `translateX(${float}px) translateY(${float/2}px)`;
+      const float = Math.sin(time) * 10;
+      cloudRef.current.style.transform = `translateX(${float/4}px) translateY(${float/2}px)`;
       requestAnimationFrame(animateCloud);
     };
 
