@@ -101,67 +101,14 @@ const HeroAnimation = () => {
     </div>
   );
 };
-/*
-const FlipCard = ({ value, label }: { value: string; label: string }) => {
-  return (
-    <div className="flex flex-col items-center mx-2">
-      <div className="bg-[#ffde59] text-[#545454] rounded-lg p-2 text-4xl font-bold mb-2">
-        {value}
-      </div>
-      <div className="text-sm">{label}</div>
-    </div>
-  );
-};
-*/
-/*
-const HeroSection = ({ timeLeft }: { timeLeft: { days: number; hours: number; minutes: number; seconds: number } }) => {
 
-  const handleScrollToRegistration = () => {
-    const registrationSection = document.getElementById('registration');
-    if (registrationSection) {
-      registrationSection.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
+const HeroSection = () => {
   return (
     <div className="relative min-h-[600px] h-screen max-h-[900px] overflow-hidden bg-white">
       <HeroAnimation />
-      <div className="relative z-10 flex flex-col items-center justify-center h-full px-4 text-center">
-        <div className="w-full max-w-[400px] mb-8 relative">
-          <Image
-            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/kagome_logo-lAJYOCafse7ibEINGEmouKC5gOfEIp.png"
-            alt="かもめ会議 2024 ロゴ"
-            width={400}
-            height={300}
-            priority
-          />
-        </div>
-        <div className="mb-6">
-          <h2 className="text-2xl font-bold mb-4">COMING SOON</h2>
-          <div className="flex justify-center">
-            <FlipCard value={timeLeft.days.toString().padStart(2, '0')} label="DAYS" />
-            <FlipCard value={timeLeft.hours.toString().padStart(2, '0')} label="HOURS" />
-            <FlipCard value={timeLeft.minutes.toString().padStart(2, '0')} label="MINUTES" />
-            <FlipCard value={timeLeft.seconds.toString().padStart(2, '0')} label="SECONDS" />
-          </div>
-        </div>
-        <div className="mb-6 bg-yellow-300 text-red-800 py-2 px-6 rounded-full font-bold flex items-center animate-bounce">
-          <span className="mr-2">🎉</span>
-          かもめ会議2024は大盛況のうちに終了いたしました。
-          次回のかもめ会議でお会いしましょう
-          <span className="ml-2">🎉</span>
-        </div>
-        <button 
-          onClick={handleScrollToRegistration}
-          className="bg-gray-400 text-white px-8 py-3 rounded-full font-semibold cursor-not-allowed"
-          disabled
-        >
-          参加申し込み
-        </button>
-      </div>
     </div>
   );
 };
-*/
 
 const FloatingHeader = () => {
   const [showLogo, setShowLogo] = useState(false);
@@ -345,6 +292,7 @@ const schedule = [
           }
         ]
       },
+
       {
         event: '分科会F',
         title: 'サーキュラーエコノミー\n～リーダー達の社会課題への取り組み方～',
@@ -456,38 +404,11 @@ const EventPopup: React.FC<EventPopupProps> = ({ session, eventType, startTime, 
 };
 
 export default function LandingPage() {
-  {/*
-  const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 })
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      const now = new Date()
-      const eventDate = new Date('2024-11-10T10:00:00')
-      const difference = eventDate.getTime() - now.getTime()
-
-      if (difference > 0) {
-        const days = Math.floor(difference / (1000 * 60 * 60 * 24))
-        const hours = Math.floor((difference / (1000 * 60 * 60)) % 24)
-        const minutes = Math.floor((difference / 1000 / 60) % 60)
-        const seconds = Math.floor((difference / 1000) % 60)
-
-        setTimeLeft({ days, hours, minutes, seconds })
-      } else {
-        setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 })
-        clearInterval(timer)
-      }
-    }, 1000)
-
-    return () => clearInterval(timer)
-  }, [])
-  */}
   return (
     <div className="min-h-screen bg-[#79a7b6] text-[#545454] font-sans">
       <FloatingHeader />
       <main className="pt-24">
-        {/*
-        <HeroSection timeLeft={timeLeft} />
-        */}
+        <HeroSection />
         <section id="about" className="py-20 bg-white">
           <div className="container mx-auto px-4 max-w-6xl">
             <h2 className="text-3xl font-bold mb-8 text-center">ABOUT</h2>
@@ -549,6 +470,7 @@ export default function LandingPage() {
             </div>
           </div>
         </section>
+
         <section id="registration" className="py-20 bg-white">
           <div className="container mx-auto px-4 max-w-6xl">
             <h2 className="text-3xl font-bold mb-8 text-center">参加申し込み</h2>
@@ -587,7 +509,8 @@ export default function LandingPage() {
               </div>
             </div>
           </div>
-        </section>
+
+          </section>
 
         <section className="py-20 bg-[#f4f4f4]">
           <div className="container mx-auto px-4 max-w-6xl">
