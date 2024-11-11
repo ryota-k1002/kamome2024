@@ -33,8 +33,9 @@ const HeroAnimation = () => {
     const animateWave = () => {
       if (!waveRef.current) return;
       waveRef.current.animate([
-        { transform: 'translateY(0) scale(1)', opacity: 0.8 },
-        { transform: 'translateY(-20px) scale(1.1)', opacity: 0 }
+        { opacity: 0 },
+        { opacity: 0.8 },
+        { opacity: 0 }
       ], {
         duration: 3000,
         iterations: Infinity,
