@@ -60,45 +60,51 @@ const HeroAnimation = () => {
 
   return (
     <div className="absolute inset-0 w-full h-full">
-      <div className="relative h-full max-w-7xl mx-auto"> {/* サイズを制限するコンテナを追加 */}
-        <picture>
+      {/* 背景画像とトップ画像用のコンテナ */}
+      <div className="relative h-full flex items-end justify-center">
+        {/* 背景画像 */}
+        <picture className="absolute bottom-0 w-auto h-full flex items-end justify-center">
           <source media="(min-width: 640px)" srcSet="/bg-pc.png" />
           <img
             src="/bg.png"
             alt=""
-            className="absolute top-0 left-1/2 -translate-x-1/2 h-full w-auto max-w-[120%] sm:max-w-full object-contain"
+            className="h-full w-auto object-contain"
             aria-hidden="true"
           />
         </picture>
-        
-        <img
-          ref={waveRef}
-          src="/wave.png"
-          alt=""
-          className="absolute top-0 left-1/2 -translate-x-1/2 h-full w-auto max-w-[120%] sm:max-w-full object-contain"
-          aria-hidden="true"
-        />
-        
-        <img
-          ref={cloudRef}
-          src="/cloud.png"
-          alt=""
-          className="absolute top-0 left-1/2 -translate-x-1/2 h-full w-auto max-w-[120%] sm:max-w-full object-contain"
-          aria-hidden="true"
-        />
-        
-        <img
-          ref={seagullRef}
-          src="/seagull.png"
-          alt=""
-          className="absolute top-0 left-1/2 -translate-x-1/2 h-full w-auto max-w-[120%] sm:max-w-full object-contain"
-          aria-hidden="true"
-        />
 
+        {/* アニメーション要素用のコンテナ */}
+        <div className="absolute inset-0 flex items-center justify-center">
+          <img
+            ref={waveRef}
+            src="/wave.png"
+            alt=""
+            className="absolute h-full w-auto object-contain"
+            aria-hidden="true"
+          />
+          
+          <img
+            ref={cloudRef}
+            src="/cloud.png"
+            alt=""
+            className="absolute h-full w-auto object-contain"
+            aria-hidden="true"
+          />
+          
+          <img
+            ref={seagullRef}
+            src="/seagull.png"
+            alt=""
+            className="absolute h-full w-auto object-contain"
+            aria-hidden="true"
+          />
+        </div>
+
+        {/* トップ画像 */}
         <img
           src="/top.png"
           alt=""
-          className="absolute top-0 left-1/2 -translate-x-1/2 h-full w-auto max-w-[120%] sm:max-w-full object-contain"
+          className="absolute bottom-0 h-full w-auto object-contain"
           aria-hidden="true"
         />
       </div>
