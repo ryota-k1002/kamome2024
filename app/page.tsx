@@ -29,13 +29,16 @@ const HeroAnimation = () => {
       requestAnimationFrame(animateCloud);
     };
 
-    // Wave animation
+// Wave animation
     const animateWave = () => {
       if (!waveRef.current) return;
       waveRef.current.animate([
-        { opacity: 0 },
-        { opacity: 0.8 },
-        { opacity: 0 }
+        // フェードインと共に奥から始まる
+        { opacity: 0, transform: 'scale(0.9) translateY(20px)' },
+        // 完全に見えて手前に
+        { opacity: 0.8, transform: 'scale(1) translateY(0px)' },
+        // フェードアウトしながら更に手前に
+        { opacity: 0, transform: 'scale(1.1) translateY(-20px)' }
       ], {
         duration: 3000,
         iterations: Infinity,
