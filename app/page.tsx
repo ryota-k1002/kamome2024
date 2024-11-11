@@ -59,7 +59,7 @@ const HeroAnimation = () => {
   }, []);
 
   return (
-    <div className="absolute inset-0 w-full h-full overflow-hidden">
+    <div className="absolute inset-x-[-20%] sm:inset-x-0 inset-y-0 w-[140%] sm:w-full h-full overflow-hidden">
       {/* 背景画像を画面幅によって切り替え */}
       <picture>
         <source media="(min-width: 640px)" srcSet="/bg-pc.png" />
@@ -111,7 +111,7 @@ const HeroAnimation = () => {
 
 const HeroSection = () => {
   return (
-    <div className="relative min-h-[600px] h-screen max-h-[900px] overflow-hidden bg-white">
+    <div className="relative h-screen overflow-hidden bg-white">
       <HeroAnimation />
     </div>
   );
@@ -414,7 +414,7 @@ export default function LandingPage() {
   return (
     <div className="min-h-screen bg-[#79a7b6] text-[#545454] font-sans">
       <FloatingHeader />
-      <main className="pt-[60px] sm:pt-24">
+      <main>
         <HeroSection />
         <section id="about" className="py-20 bg-white">
           <div className="container mx-auto px-4 max-w-6xl">
