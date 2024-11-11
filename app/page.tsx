@@ -60,53 +60,48 @@ const HeroAnimation = () => {
 
   return (
     <div className="absolute inset-0 w-full h-full overflow-hidden">
-      <div className="relative w-full h-full flex items-end justify-center">
-        {/* 背景画像: 下揃えで中央配置 */}
-        <picture className="absolute bottom-0 left-1/2 -translate-x-1/2">
-          <source media="(min-width: 640px)" srcSet="/bg-pc.png" />
-          <img
-            src="/bg.png"
-            alt=""
-            className="h-full w-auto max-w-none"
-            aria-hidden="true"
-          />
-        </picture>
+      {/* Background image - static */}
+      <img
+        src="/bg.png"
+        alt=""
+        className="absolute inset-0 w-full h-full object-contain"
+        aria-hidden="true"
+      />
+      
+      {/* Wave layer - animated */}
+      <img
+        ref={waveRef}
+        src="/wave.png"
+        alt=""
+        className="absolute inset-0 w-full h-full object-contain"
+        aria-hidden="true"
+      />
+      
+      {/* Cloud layer - animated */}
+      <img
+        ref={cloudRef}
+        src="/cloud.png"
+        alt=""
+        className="absolute inset-0 w-full h-full object-contain"
+        aria-hidden="true"
+      />
+      
+      {/* Seagull layer - animated */}
+      <img
+        ref={seagullRef}
+        src="/seagull.png"
+        alt=""
+        className="absolute inset-0 w-full h-full object-contain"
+        aria-hidden="true"
+      />
 
-        {/* アニメーション画像: 下揃えで中央配置 */}
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2">
-          <img
-            ref={waveRef}
-            src="/wave.png"
-            alt=""
-            className="absolute bottom-0 left-1/2 -translate-x-1/2 h-full w-auto max-w-none"
-            aria-hidden="true"
-          />
-          
-          <img
-            ref={cloudRef}
-            src="/cloud.png"
-            alt=""
-            className="absolute bottom-0 left-1/2 -translate-x-1/2 h-full w-auto max-w-none"
-            aria-hidden="true"
-          />
-          
-          <img
-            ref={seagullRef}
-            src="/seagull.png"
-            alt=""
-            className="absolute bottom-0 left-1/2 -translate-x-1/2 h-full w-auto max-w-none"
-            aria-hidden="true"
-          />
-        </div>
-
-        {/* トップ画像: 下揃えで中央配置 */}
-        <img
-          src="/top.png"
-          alt=""
-          className="absolute bottom-0 left-1/2 -translate-x-1/2 h-full w-auto max-w-none"
-          aria-hidden="true"
-        />
-      </div>
+      {/* Top overlay - static */}
+      <img
+        src="/top.png"
+        alt=""
+        className="absolute inset-0 w-full h-full object-contain"
+        aria-hidden="true"
+      />
     </div>
   );
 };
