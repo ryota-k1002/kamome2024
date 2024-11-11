@@ -57,14 +57,13 @@ const HeroAnimation = () => {
       cancelAnimationFrame(cloudAnimation);
     };
   }, []);
-
   return (
     <div className="absolute inset-0 w-full h-full overflow-hidden">
       {/* Background image - static */}
       <img
         src="/bg.png"
         alt=""
-        className="absolute inset-0 w-full h-full object-contain"
+        className="absolute inset-0 w-full h-full object-cover md:object-contain"
         aria-hidden="true"
       />
       
@@ -73,7 +72,7 @@ const HeroAnimation = () => {
         ref={waveRef}
         src="/wave.png"
         alt=""
-        className="absolute inset-0 w-full h-full object-contain"
+        className="absolute inset-0 w-full h-full object-cover md:object-contain"
         aria-hidden="true"
       />
       
@@ -82,7 +81,7 @@ const HeroAnimation = () => {
         ref={cloudRef}
         src="/cloud.png"
         alt=""
-        className="absolute inset-0 w-full h-full object-contain"
+        className="absolute inset-0 w-full h-full object-cover md:object-contain"
         aria-hidden="true"
       />
       
@@ -91,7 +90,7 @@ const HeroAnimation = () => {
         ref={seagullRef}
         src="/seagull.png"
         alt=""
-        className="absolute inset-0 w-full h-full object-contain"
+        className="absolute inset-0 w-full h-full object-cover md:object-contain"
         aria-hidden="true"
       />
 
@@ -99,7 +98,7 @@ const HeroAnimation = () => {
       <img
         src="/top.png"
         alt=""
-        className="absolute inset-0 w-full h-full object-contain"
+        className="absolute inset-0 w-full h-full object-cover md:object-contain"
         aria-hidden="true"
       />
     </div>
@@ -108,7 +107,7 @@ const HeroAnimation = () => {
 
 const HeroSection = () => {
   return (
-    <div className="relative min-h-[600px] h-screen max-h-[900px] overflow-hidden bg-white">
+    <div className="relative min-h-[500px] sm:min-h-[600px] h-[100dvh] max-h-[900px] overflow-hidden bg-white">
       <HeroAnimation />
     </div>
   );
