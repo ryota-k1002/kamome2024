@@ -58,10 +58,9 @@ const HeroAnimation = () => {
     };
   }, []);
 
-  
   return (
-    <div className="absolute inset-x-[-20%] sm:inset-x-0 inset-y-0 w-[140%] sm:w-full h-full overflow-hidden">
-      {/* すべての画像に同じクラスを適用 */}
+    <div className="absolute inset-0 w-full h-full overflow-hidden">
+      {/* Background image - static */}
       <img
         src="/bg.png"
         alt=""
@@ -69,6 +68,7 @@ const HeroAnimation = () => {
         aria-hidden="true"
       />
       
+      {/* Wave layer - animated */}
       <img
         ref={waveRef}
         src="/wave.png"
@@ -77,6 +77,7 @@ const HeroAnimation = () => {
         aria-hidden="true"
       />
       
+      {/* Cloud layer - animated */}
       <img
         ref={cloudRef}
         src="/cloud.png"
@@ -85,6 +86,7 @@ const HeroAnimation = () => {
         aria-hidden="true"
       />
       
+      {/* Seagull layer - animated */}
       <img
         ref={seagullRef}
         src="/seagull.png"
@@ -93,6 +95,7 @@ const HeroAnimation = () => {
         aria-hidden="true"
       />
 
+      {/* Top overlay - static */}
       <img
         src="/top.png"
         alt=""
@@ -105,7 +108,7 @@ const HeroAnimation = () => {
 
 const HeroSection = () => {
   return (
-    <div className="relative min-h-[500px] sm:min-h-[600px] h-[100dvh] max-h-[900px] overflow-hidden bg-white">
+    <div className="relative min-h-[600px] h-screen max-h-[900px] overflow-hidden bg-white">
       <HeroAnimation />
     </div>
   );
