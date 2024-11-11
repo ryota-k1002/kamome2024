@@ -459,6 +459,7 @@ const EventPopup: React.FC<EventPopupProps> = ({ session, eventType, startTime, 
 };
 
 export default function LandingPage() {
+  {/*
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 })
 
   useEffect(() => {
@@ -482,12 +483,14 @@ export default function LandingPage() {
 
     return () => clearInterval(timer)
   }, [])
-
+  */}
   return (
     <div className="min-h-screen bg-[#79a7b6] text-[#545454] font-sans">
       <FloatingHeader />
       <main className="pt-24">
+        {/*
         <HeroSection timeLeft={timeLeft} />
+        */}
         <section id="about" className="py-20 bg-white">
           <div className="container mx-auto px-4 max-w-6xl">
             <h2 className="text-3xl font-bold mb-8 text-center">ABOUT</h2>
