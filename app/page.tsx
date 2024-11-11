@@ -60,10 +60,9 @@ const HeroAnimation = () => {
 
   return (
     <div className="absolute inset-0 w-full h-full">
-      {/* 背景画像とトップ画像用のコンテナ */}
       <div className="relative h-full flex items-end justify-center">
         {/* 背景画像 */}
-        <picture className="absolute bottom-0 w-auto h-full flex items-end justify-center">
+        <picture className="absolute bottom-0">
           <source media="(min-width: 640px)" srcSet="/bg-pc.png" />
           <img
             src="/bg.png"
@@ -73,32 +72,30 @@ const HeroAnimation = () => {
           />
         </picture>
 
-        {/* アニメーション要素用のコンテナ */}
-        <div className="absolute inset-0 flex items-center justify-center">
-          <img
-            ref={waveRef}
-            src="/wave.png"
-            alt=""
-            className="absolute h-full w-auto object-contain"
-            aria-hidden="true"
-          />
-          
-          <img
-            ref={cloudRef}
-            src="/cloud.png"
-            alt=""
-            className="absolute h-full w-auto object-contain"
-            aria-hidden="true"
-          />
-          
-          <img
-            ref={seagullRef}
-            src="/seagull.png"
-            alt=""
-            className="absolute h-full w-auto object-contain"
-            aria-hidden="true"
-          />
-        </div>
+        {/* アニメーション要素 - 全て bottom-0 で下揃え */}
+        <img
+          ref={waveRef}
+          src="/wave.png"
+          alt=""
+          className="absolute bottom-0 h-full w-auto object-contain"
+          aria-hidden="true"
+        />
+        
+        <img
+          ref={cloudRef}
+          src="/cloud.png"
+          alt=""
+          className="absolute bottom-0 h-full w-auto object-contain"
+          aria-hidden="true"
+        />
+        
+        <img
+          ref={seagullRef}
+          src="/seagull.png"
+          alt=""
+          className="absolute bottom-0 h-full w-auto object-contain"
+          aria-hidden="true"
+        />
 
         {/* トップ画像 */}
         <img
@@ -111,7 +108,6 @@ const HeroAnimation = () => {
     </div>
   );
 };
-
 const HeroSection = () => {
   return (
     <div className="hero-section relative h-[calc(100vh-4rem)] sm:h-[calc(100vh-6rem)] overflow-hidden bg-white">
