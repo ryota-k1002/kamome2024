@@ -57,48 +57,46 @@ const HeroAnimation = () => {
       cancelAnimationFrame(cloudAnimation);
     };
   }, []);
+
+  
   return (
-    <div className="absolute inset-0 w-full h-full overflow-hidden">
-      {/* Background image - static */}
+    <div className="absolute inset-x-[-20%] sm:inset-x-0 inset-y-0 w-[140%] sm:w-full h-full overflow-hidden">
+      {/* すべての画像に同じクラスを適用 */}
       <img
         src="/bg.png"
         alt=""
-        className="absolute inset-0 w-full h-full object-cover md:object-contain"
+        className="absolute inset-0 w-full h-full object-contain"
         aria-hidden="true"
       />
       
-      {/* Wave layer - animated */}
       <img
         ref={waveRef}
         src="/wave.png"
         alt=""
-        className="absolute inset-0 w-full h-full object-cover md:object-contain"
+        className="absolute inset-0 w-full h-full object-contain"
         aria-hidden="true"
       />
       
-      {/* Cloud layer - animated */}
       <img
         ref={cloudRef}
         src="/cloud.png"
         alt=""
-        className="absolute inset-0 w-full h-full object-cover md:object-contain"
+        className="absolute inset-0 w-full h-full object-contain"
         aria-hidden="true"
       />
       
-      {/* Seagull layer - animated */}
       <img
         ref={seagullRef}
         src="/seagull.png"
         alt=""
-        className="absolute inset-0 w-full h-full object-cover md:object-contain"
+        className="absolute inset-0 w-full h-full object-contain"
         aria-hidden="true"
       />
 
-      {/* Top overlay - static */}
       <img
         src="/top.png"
         alt=""
-        className="absolute inset-0 w-full h-full object-cover md:object-contain"
+        className="absolute inset-0 w-full h-full object-contain"
         aria-hidden="true"
       />
     </div>
