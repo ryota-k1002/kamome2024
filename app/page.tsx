@@ -113,20 +113,19 @@ const FlipCard = ({ value, label }: { value: string; label: string }) => {
   );
 };
 */
-const HeroSection = ({ timeLeft }: { timeLeft: { days: number; hours: number; minutes: number; seconds: number } }) => {
 /*
+const HeroSection = ({ timeLeft }: { timeLeft: { days: number; hours: number; minutes: number; seconds: number } }) => {
+
   const handleScrollToRegistration = () => {
     const registrationSection = document.getElementById('registration');
     if (registrationSection) {
       registrationSection.scrollIntoView({ behavior: 'smooth' });
     }
   };
-*/
   return (
     <div className="relative min-h-[600px] h-screen max-h-[900px] overflow-hidden bg-white">
       <HeroAnimation />
       <div className="relative z-10 flex flex-col items-center justify-center h-full px-4 text-center">
-      {/*
         <div className="w-full max-w-[400px] mb-8 relative">
           <Image
             src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/kagome_logo-lAJYOCafse7ibEINGEmouKC5gOfEIp.png"
@@ -145,14 +144,12 @@ const HeroSection = ({ timeLeft }: { timeLeft: { days: number; hours: number; mi
             <FlipCard value={timeLeft.seconds.toString().padStart(2, '0')} label="SECONDS" />
           </div>
         </div>
-        */}
         <div className="mb-6 bg-yellow-300 text-red-800 py-2 px-6 rounded-full font-bold flex items-center animate-bounce">
           <span className="mr-2">🎉</span>
           かもめ会議2024は大盛況のうちに終了いたしました。
           次回のかもめ会議でお会いしましょう
           <span className="ml-2">🎉</span>
         </div>
-        {/*
         <button 
           onClick={handleScrollToRegistration}
           className="bg-gray-400 text-white px-8 py-3 rounded-full font-semibold cursor-not-allowed"
@@ -160,11 +157,11 @@ const HeroSection = ({ timeLeft }: { timeLeft: { days: number; hours: number; mi
         >
           参加申し込み
         </button>
-        */}
       </div>
     </div>
   );
 };
+*/
 
 const FloatingHeader = () => {
   const [showLogo, setShowLogo] = useState(false);
