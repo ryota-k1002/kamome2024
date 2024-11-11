@@ -5,96 +5,93 @@ import { useState, useEffect, useRef } from 'react'
 import { Calendar, MapPin, ExternalLink, Facebook, Building2, User, AlertTriangle } from 'lucide-react'
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
 
-const WaveAndBirdAnimation = () => {
-  const canvasRef = useRef<HTMLCanvasElement | null>(null);
+const HeroAnimation = () => {
+  const seagullRef = useRef<HTMLImageElement>(null);
+  const cloudRef = useRef<HTMLImageElement>(null);
+  const waveRef = useRef<HTMLImageElement>(null);
 
   useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-
-    const ctx = canvas.getContext('2d');
-    if (!ctx) return;
-
-    let animationFrameId: number;
-
-    const resizeCanvas = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
+    // Seagull pendulum animation
+    const animateSeagull = () => {
+      if (!seagullRef.current) return;
+      const time = Date.now() / 1000;
+      const swing = Math.sin(time) * 20; // 振り子の振幅を20pxに設定
+      seagullRef.current.style.transform = `translateX(${swing}px) translateY(${Math.abs(swing/2)}px)`;
+      requestAnimationFrame(animateSeagull);
     };
 
-    resizeCanvas();
-    window.addEventListener('resize', resizeCanvas);
-
-    const waveColors = ['#b5d3dc', '#97bfcc', '#79a7b6'];
-    const waveCount = 3;
-
-    const waves = Array(waveCount).fill(null).map((_, i) => ({
-      amplitude: 30 + i * 15,
-      frequency: 0.005 - i * 0.001,
-      phase: 0,
-      y: canvas.height * (0.5 + i * 0.15)
-    }));
-
-    const birdParticles = Array(3).fill(null).map(() => ({
-      x: Math.random() * canvas.width,
-      y: Math.random() * canvas.height * 0.5,
-      size: 20,
-      vx: (Math.random() - 0.5) * 0.5,
-      vy: (Math.random() - 0.5) * 0.5
-    }));
-
-    const drawWave = (wave: typeof waves[0], color: string) => {
-      ctx.beginPath();
-      ctx.moveTo(0, canvas.height);
-      for (let x = 0; x <= canvas.width; x++) {
-        const y = wave.y + Math.sin(x * wave.frequency + wave.phase) * wave.amplitude;
-        ctx.lineTo(x, y);
-      }
-      ctx.lineTo(canvas.width, canvas.height);
-      ctx.fillStyle = color;
-      ctx.fill();
+    // Cloud floating animation
+    const animateCloud = () => {
+      if (!cloudRef.current) return;
+      const time = Date.now() / 2000;
+      const float = Math.sin(time) * 15; // 雲の振幅を15pxに設定
+      cloudRef.current.style.transform = `translateX(${float}px) translateY(${float/2}px)`;
+      requestAnimationFrame(animateCloud);
     };
 
-    const drawBird = (x: number, y: number, size: number) => {
-      ctx.beginPath();
-      ctx.moveTo(x, y);
-      ctx.quadraticCurveTo(x + size / 2, y - size / 2, x + size, y);
-      ctx.quadraticCurveTo(x + size * 1.5, y - size / 2, x + size * 2, y);
-      ctx.strokeStyle = '#545454';
-      ctx.lineWidth = 2;
-      ctx.stroke();
-    };
-
-    const animate = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-      waves.forEach((wave, index) => {
-        wave.phase += 0.02;
-        drawWave(wave, waveColors[index]);
+    // Wave animation
+    const animateWave = () => {
+      if (!waveRef.current) return;
+      waveRef.current.animate([
+        { transform: 'translateY(0) scale(1)', opacity: 0.8 },
+        { transform: 'translateY(-20px) scale(1.1)', opacity: 0 }
+      ], {
+        duration: 3000,
+        iterations: Infinity,
+        easing: 'ease-in-out'
       });
-
-      birdParticles.forEach(bird => {
-        bird.x += bird.vx;
-        bird.y += bird.vy;
-
-        if (bird.x < 0 || bird.x > canvas.width) bird.vx *= -1;
-        if (bird.y < 0 || bird.y > canvas.height * 0.5) bird.vy *= -1;
-
-        drawBird(bird.x, bird.y, bird.size);
-      });
-
-      animationFrameId = requestAnimationFrame(animate);
     };
 
-    animate();
+    // Start all animations
+    const seagullAnimation = requestAnimationFrame(animateSeagull);
+    const cloudAnimation = requestAnimationFrame(animateCloud);
+    animateWave();
 
+    // Cleanup
     return () => {
-      cancelAnimationFrame(animationFrameId);
-      window.removeEventListener('resize', resizeCanvas);
+      cancelAnimationFrame(seagullAnimation);
+      cancelAnimationFrame(cloudAnimation);
     };
   }, []);
 
-  return <canvas ref={canvasRef} className="absolute top-0 left-0 w-full h-full" aria-hidden="true" />;
+  return (
+    <div className="absolute inset-0 w-full h-full overflow-hidden">
+      {/* Background image - static */}
+      <img
+        src="/bg.png"
+        alt=""
+        className="absolute inset-0 w-full h-full object-cover"
+        aria-hidden="true"
+      />
+      
+      {/* Wave layer - animated */}
+      <img
+        ref={waveRef}
+        src="/wave.png"
+        alt=""
+        className="absolute inset-0 w-full h-full object-cover"
+        aria-hidden="true"
+      />
+      
+      {/* Cloud layer - animated */}
+      <img
+        ref={cloudRef}
+        src="/cloud.png"
+        alt=""
+        className="absolute inset-0 w-full h-full object-cover"
+        aria-hidden="true"
+      />
+      
+      {/* Seagull layer - animated */}
+      <img
+        ref={seagullRef}
+        src="/seagull.png"
+        alt=""
+        className="absolute inset-0 w-full h-full object-cover"
+        aria-hidden="true"
+      />
+    </div>
+  );
 };
 
 const FlipCard = ({ value, label }: { value: string; label: string }) => {
@@ -118,7 +115,7 @@ const HeroSection = ({ timeLeft }: { timeLeft: { days: number; hours: number; mi
 
   return (
     <div className="relative h-screen overflow-hidden bg-white">
-      <WaveAndBirdAnimation />
+      <HeroAnimation />
       <div className="relative z-10 flex flex-col items-center justify-center h-full px-4 text-center">
         <div className="w-full max-w-[400px] mb-8 relative">
           <Image
@@ -290,7 +287,6 @@ const schedule = [
         event: '分科会C',
         title: '地方創生\n～鎌倉から地方創生を生み出す地域企業について～',
         description: '鎌倉市に拠点を構え、神奈川県の地方創生だけではなく、全国の地域や企業と連携し、地域活性化、移住者の促進や関係人口創出に繋がるプロジェクトを手掛ける同社。今回ご登壇いただく宮本氏は、前職の編集者から同社に転職され、現在はちいき資本主義事業部の事業部長を担っておられます。同社がこれまで手掛けたきたプロジェクトの紹介に加え、宮本氏がどのような想いを持ち、全国の地域創生を進めているのかについてもお話いただきます。',
-        //soldOut: true, // この行を追加
         speakers: [
           { 
             name: '宮本 早織氏', 
@@ -343,7 +339,6 @@ const schedule = [
         event: '分科会F',
         title: 'サーキュラーエコノミー\n～リーダー達の社会課題への取り組み方～',
         description: 'サーキュラーエコノミーで業界をリードする2名の代表者が、食品廃棄物を利用したリサイクル事業や、容器リユースシェアリングサービス「Megloo」について話します。各社の起業から運営までの実務経験を基に、起業のノウハウや業界の未来について伺います。社会課題に関心を持つ方にとって、次の一歩を踏み出すためのヒントに満ちた１時間です。',
-        //soldOut: true, // この行を追加
         speakers: [
           { name: '髙橋 巧一氏', 
             organization: '株式会社日本フードエコロジーセンター', 
@@ -434,214 +429,211 @@ const EventPopup: React.FC<EventPopupProps> = ({ session, eventType, startTime, 
                   alt={speaker.name}
                   width={40}
                   height={40}
-                  className="rounded-full mr-2"
-                />
-                <div>
-                  <p className="font-bold text-sm">{speaker.name}</p>
-                  <p className="text-xs">{speaker.organization}</p>
-                  <p className="text-xs">{speaker.position}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </DialogContent>
-    </Dialog>
-  );
-};
-
-export default function LandingPage() {
-  const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 })
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      const now = new Date()
-      const eventDate = new Date('2024-11-10T10:00:00')
-      const difference = eventDate.getTime() - now.getTime()
-
-      if (difference > 0) {
-        const days = Math.floor(difference / (1000 * 60 * 60 * 24))
-        const hours = Math.floor((difference / (1000 * 60 * 60)) % 24)
-        const minutes = Math.floor((difference / 1000 / 60) % 60)
-        const seconds = Math.floor((difference / 1000) % 60)
-
-        setTimeLeft({ days, hours, minutes, seconds })
-      } else {
-        setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 })
-        clearInterval(timer)
-      }
-    }, 1000)
-
-    return () => clearInterval(timer)
-  }, [])
-
-  return (
-    <div className="min-h-screen bg-[#79a7b6] text-[#545454] font-sans">
-      <FloatingHeader />
-
-      <main className="pt-24">
-        <HeroSection timeLeft={timeLeft} />
-
-        <section id="about" className="py-20 bg-white">
-          <div className="container mx-auto px-4 max-w-6xl">
-            <h2 className="text-3xl font-bold mb-8 text-center">ABOUT</h2>
-            <div className="mb-8">
-              <h3 className="text-3xl font-bold text-[#79a7b6] text-center mb-6">
-                参加者全員が1歩踏み出すきっかけを、ヨコハマから
-              </h3>
-            </div>
-            <p className="text-lg mb-6">
-              かもめ会議とはグロービス経営大学院の公認クラブであるグロービス横浜活性化クラブ(GYAC)が主催する、単科生・本科生・卒業生のためのビジネスカンファレンスです。
-            </p>
-            <ul className="list-disc pl-6 mb-6 space-y-2">
-              <li><strong>起業家精神の真髄に触れる：</strong> 横浜ゆかりの起業家たちが、失敗を恐れず挑戦する勇気をリアルな体験とともに伝授。</li>
-              <li><strong>社会課題へのアプローチを学ぶ：</strong> 未病対策やサーキュラーエコノミーなど、今注目の分野で活躍する実務者から最前線の取り組み
-
-を聞く。</li>
-              <li><strong>未来を創る仲間と出会う：</strong> 「ヨコハマ未来創造会議」のような、次世代を担う若者たちの斬新な発想に触れ、刺激を得る。</li>
-              <li><strong>意外なキャリアの可能性を発見：</strong> 宇宙ビジネスやフードテック、地方創生など、思わぬところにあなたのスキルが活きるチャンスが。</li>
-            </ul>
-            <p className="text-lg">
-              堅苦しさは一切なし。肩の力を抜いて参加できる、でも中身は本気の1日。「自分も何かできるかも」そんな小さな思いが、大きな一歩につながる瞬間を、ぜひ体感してください。
-            </p>
-          </div>
-        </section>
-
-        <section id="timetable" className="py-20 bg-[#f4f4f4]">
-          <div className="container mx-auto px-4 max-w-6xl">
-            <h2 className="text-3xl font-bold mb-8 text-center">TIME TABLE</h2>
-            <div className="space-y-4 relative">
-              <div className="absolute left-1/2 top-0 bottom-0 w-px bg-gray-300 transform -translate-x-1/2"></div>
-              {schedule.map((item, index) => (
-                <div key={index} className="bg-white p-4 rounded-lg shadow-md relative z-10">
-                  <div className="flex justify-between items-center mb-2">
-                    <div>
-                      <span className="text-xl font-bold">{item.startTime}-{item.endTime}</span>
-                      {item.duration && <p className="text-sm text-gray-600">{item.duration}</p>}
-                    </div>
-                    <span className={`text-lg ${['全体会', '分科会1', '分科会2', '分科会3'].includes(item.event) ? 'bg-[#ff8383] text-white px-2 py-1 rounded-full' : ''}`}>
-                      {item.event.split('\n').map((line, i) => (
-                        <span key={i} className="block">{line}</span>
-                      ))}
-                    </span>
+                  className="rounded-full mr-2"/>
+                  <div>
+                    <p className="font-bold text-sm">{speaker.name}</p>
+                    <p className="text-xs">{speaker.organization}</p>
+                    <p className="text-xs">{speaker.position}</p>
                   </div>
-                  {item.type === 'plenary' || item.type === 'breakout' ? (
-                    <div className={`mt-4 ${item.type === 'plenary' ? 'grid-cols-1' : 'grid grid-cols-1 md:grid-cols-2 gap-4'}`}>
-                      {item.sessions?.map((session, sessionIndex) => (
-                        <div key={sessionIndex} className="mb-4 h-full">
-                          <EventPopup 
-                            session={session} 
-                            eventType={item.type} 
-                            startTime={item.startTime}
-                            endTime={item.endTime}
-                            duration={item.duration}
-                          />
-                        </div>
-                      ))}
-                    </div>
-                  ) : null}
                 </div>
               ))}
             </div>
           </div>
-        </section>
-
-        <section id="registration" className="py-20 bg-white">
-      <div className="container mx-auto px-4 max-w-6xl">
-        <h2 className="text-3xl font-bold mb-8 text-center">参加申し込み</h2>
-        <div className="bg-[#f4f4f4] p-6 rounded-lg shadow-md mb-8">
-          <h3 className="text-xl font-bold mb-4">申し込み状況</h3>
-          <div className="bg-red-100 border-l-4 border-red-500 text-red-700 p-4 mb-6 rounded-lg">
-            <p className="font-bold flex items-center">
-              <AlertTriangle className="mr-2" />
-              チケット完売のお知らせ
-            </p>
-            <p>多数のお申し込みをいただき誠にありがとうございます。</p>
-            <p>かもめ会議2024は全席完売となりました。</p>
-            <p>次回の開催をご期待ください。</p>
-          </div>
-
-          <h4 className="text-lg font-bold mb-2">購入済みチケットについて</h4>
-          <p className="mb-4">受付完了後のキャンセル・返金はできません。ただし、チケットの譲渡は可能です。 </p>
-          <p className="mb-4">譲渡する際はPeatixのシステム上で譲渡の申請をお願いします。</p>
-          <p className="mb-4">尚、当事者間の譲渡に関しては運営事務局は一切の責任を負いかねます。</p>
-
-          <h4 className="text-lg font-bold mb-2">お問い合わせ</h4>
-          <p className="mb-1">かもめ会議運営事務局</p>
-          <p className="mb-4">
-            <a href="mailto:kamome_2024.stu@globis.ac.jp" className="text-blue-600 hover:underline">
-              kamome_2024.stu@globis.ac.jp
-            </a>
-          </p>
-
-          <div className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4 mt-6">
-            <button className="bg-gray-400 text-white px-4 py-2 rounded cursor-not-allowed" disabled>
-              チケット購入
-            </button>
-            <button className="bg-gray-400 text-white px-4 py-2 rounded cursor-not-allowed" disabled>
-              セッション申し込み
-            </button>
-          </div>
-        </div>
-      </div>
-    </section>
-
-        <section className="py-20 bg-[#f4f4f4]">
-          <div className="container mx-auto px-4 max-w-6xl">
-            <h2 className="text-3xl font-bold mb-8 text-center">開催概要</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div className="bg-white p-6 rounded-lg shadow-md">
-                <h3 className="text-xl font-bold mb-4 flex items-center">
-                  <Calendar className="mr-2" />
-                  開催日時
+        </DialogContent>
+      </Dialog>
+    );
+  };
+  
+  export default function LandingPage() {
+    const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 })
+  
+    useEffect(() => {
+      const timer = setInterval(() => {
+        const now = new Date()
+        const eventDate = new Date('2024-11-10T10:00:00')
+        const difference = eventDate.getTime() - now.getTime()
+  
+        if (difference > 0) {
+          const days = Math.floor(difference / (1000 * 60 * 60 * 24))
+          const hours = Math.floor((difference / (1000 * 60 * 60)) % 24)
+          const minutes = Math.floor((difference / 1000 / 60) % 60)
+          const seconds = Math.floor((difference / 1000) % 60)
+  
+          setTimeLeft({ days, hours, minutes, seconds })
+        } else {
+          setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 })
+          clearInterval(timer)
+        }
+      }, 1000)
+  
+      return () => clearInterval(timer)
+    }, [])
+  
+    return (
+      <div className="min-h-screen bg-[#79a7b6] text-[#545454] font-sans">
+        <FloatingHeader />
+  
+        <main className="pt-24">
+          <HeroSection timeLeft={timeLeft} />
+  
+          <section id="about" className="py-20 bg-white">
+            <div className="container mx-auto px-4 max-w-6xl">
+              <h2 className="text-3xl font-bold mb-8 text-center">ABOUT</h2>
+              <div className="mb-8">
+                <h3 className="text-3xl font-bold text-[#79a7b6] text-center mb-6">
+                  参加者全員が1歩踏み出すきっかけを、ヨコハマから
                 </h3>
-                <p className="mb-2">2024年11月10日（日）</p>
-                <p>10:00-17:15 (受付開始 09:30)</p>
               </div>
-              <div className="bg-white p-6 rounded-lg shadow-md">
-                <h3 className="text-xl font-bold mb-4 flex items-center">
-                  <Building2 className="mr-2" />
-                  会場
-                </h3>
-                <p className="mb-2">グロービス経営大学院　横浜・特設キャンパス</p>
-                <p>〒220-0005　神奈川県横浜市西区南幸1-1-1 JR横浜タワー14F</p>
-              </div>
-              <div className="bg-white p-6 rounded-lg shadow-md">
-                <h3 className="text-xl font-bold mb-4 flex items-center">
-                  <MapPin className="mr-2" />
-                  アクセス
-                </h3>
-                <p className="mb-2">JR横浜駅 北改札口、きた西口出口を出て左／徒歩5分</p>
-                <p className="mb-2">JR横浜タワー内に14Fへの直通エレベーターはございませんので、12Fで13-21F行きエレベーターまたはエスカレーターにお乗り換えいただき、14Fまでお越しください。</p>
-                <a href="https://mba.globis.ac.jp/inquiry/#yokohama" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
-                  詳細なアクセス情報はこちら
-                </a>
-              </div>
-              <div className="bg-white p-6 rounded-lg shadow-md">
-                <h3 className="text-xl font-bold mb-4 flex items-center">
-                  <User className="mr-2" />
-                  主催
-                </h3>
-                <p className="mb-2">グロービス横浜活性化クラブ(GYAC)</p>
-                <a href="https://www.facebook.com/groups/gyac.yokohama" target="_blank" rel="noopener noreferrer" className="inline-block">
-                  <Facebook className="w-6 h-6 text-[#545454] hover:text-[#ffde59]" />
-                </a>
+              <p className="text-lg mb-6">
+                かもめ会議とはグロービス経営大学院の公認クラブであるグロービス横浜活性化クラブ(GYAC)が主催する、単科生・本科生・卒業生のためのビジネスカンファレンスです。
+              </p>
+              <ul className="list-disc pl-6 mb-6 space-y-2">
+                <li><strong>起業家精神の真髄に触れる：</strong> 横浜ゆかりの起業家たちが、失敗を恐れず挑戦する勇気をリアルな体験とともに伝授。</li>
+                <li><strong>社会課題へのアプローチを学ぶ：</strong> 未病対策やサーキュラーエコノミーなど、今注目の分野で活躍する実務者から最前線の取り組みを聞く。</li>
+                <li><strong>未来を創る仲間と出会う：</strong> 「ヨコハマ未来創造会議」のような、次世代を担う若者たちの斬新な発想に触れ、刺激を得る。</li>
+                <li><strong>意外なキャリアの可能性を発見：</strong> 宇宙ビジネスやフードテック、地方創生など、思わぬところにあなたのスキルが活きるチャンスが。</li>
+              </ul>
+              <p className="text-lg">
+                堅苦しさは一切なし。肩の力を抜いて参加できる、でも中身は本気の1日。「自分も何かできるかも」そんな小さな思いが、大きな一歩につながる瞬間を、ぜひ体感してください。
+              </p>
+            </div>
+          </section>
+  
+          <section id="timetable" className="py-20 bg-[#f4f4f4]">
+            <div className="container mx-auto px-4 max-w-6xl">
+              <h2 className="text-3xl font-bold mb-8 text-center">TIME TABLE</h2>
+              <div className="space-y-4 relative">
+                <div className="absolute left-1/2 top-0 bottom-0 w-px bg-gray-300 transform -translate-x-1/2"></div>
+                {schedule.map((item, index) => (
+                  <div key={index} className="bg-white p-4 rounded-lg shadow-md relative z-10">
+                    <div className="flex justify-between items-center mb-2">
+                      <div>
+                        <span className="text-xl font-bold">{item.startTime}-{item.endTime}</span>
+                        {item.duration && <p className="text-sm text-gray-600">{item.duration}</p>}
+                      </div>
+                      <span className={`text-lg ${['全体会', '分科会1', '分科会2', '分科会3'].includes(item.event) ? 'bg-[#ff8383] text-white px-2 py-1 rounded-full' : ''}`}>
+                        {item.event.split('\n').map((line, i) => (
+                          <span key={i} className="block">{line}</span>
+                        ))}
+                      </span>
+                    </div>
+                    {item.type === 'plenary' || item.type === 'breakout' ? (
+                      <div className={`mt-4 ${item.type === 'plenary' ? 'grid-cols-1' : 'grid grid-cols-1 md:grid-cols-2 gap-4'}`}>
+                        {item.sessions?.map((session, sessionIndex) => (
+                          <div key={sessionIndex} className="mb-4 h-full">
+                            <EventPopup 
+                              session={session} 
+                              eventType={item.type} 
+                              startTime={item.startTime}
+                              endTime={item.endTime}
+                              duration={item.duration}
+                            />
+                          </div>
+                        ))}
+                      </div>
+                    ) : null}
+                  </div>
+                ))}
               </div>
             </div>
+          </section>
+  
+          <section id="registration" className="py-20 bg-white">
+            <div className="container mx-auto px-4 max-w-6xl">
+              <h2 className="text-3xl font-bold mb-8 text-center">参加申し込み</h2>
+              <div className="bg-[#f4f4f4] p-6 rounded-lg shadow-md mb-8">
+                <h3 className="text-xl font-bold mb-4">申し込み状況</h3>
+                <div className="bg-red-100 border-l-4 border-red-500 text-red-700 p-4 mb-6 rounded-lg">
+                  <p className="font-bold flex items-center">
+                    <AlertTriangle className="mr-2" />
+                    チケット完売のお知らせ
+                  </p>
+                  <p>多数のお申し込みをいただき誠にありがとうございます。</p>
+                  <p>かもめ会議2024は全席完売となりました。</p>
+                  <p>次回の開催をご期待ください。</p>
+                </div>
+  
+                <h4 className="text-lg font-bold mb-2">購入済みチケットについて</h4>
+                <p className="mb-4">受付完了後のキャンセル・返金はできません。ただし、チケットの譲渡は可能です。 </p>
+                <p className="mb-4">譲渡する際はPeatixのシステム上で譲渡の申請をお願いします。</p>
+                <p className="mb-4">尚、当事者間の譲渡に関しては運営事務局は一切の責任を負いかねます。</p>
+  
+                <h4 className="text-lg font-bold mb-2">お問い合わせ</h4>
+                <p className="mb-1">かもめ会議運営事務局</p>
+                <p className="mb-4">
+                  <a href="mailto:kamome_2024.stu@globis.ac.jp" className="text-blue-600 hover:underline">
+                    kamome_2024.stu@globis.ac.jp
+                  </a>
+                </p>
+  
+                <div className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4 mt-6">
+                  <button className="bg-gray-400 text-white px-4 py-2 rounded cursor-not-allowed" disabled>
+                    チケット購入
+                  </button>
+                  <button className="bg-gray-400 text-white px-4 py-2 rounded cursor-not-allowed" disabled>
+                    セッション申し込み
+                  </button>
+                </div>
+              </div>
+            </div>
+          </section>
+  
+          <section className="py-20 bg-[#f4f4f4]">
+            <div className="container mx-auto px-4 max-w-6xl">
+              <h2 className="text-3xl font-bold mb-8 text-center">開催概要</h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div className="bg-white p-6 rounded-lg shadow-md">
+                  <h3 className="text-xl font-bold mb-4 flex items-center">
+                    <Calendar className="mr-2" />
+                    開催日時
+                  </h3>
+                  <p className="mb-2">2024年11月10日（日）</p>
+                  <p>10:00-17:15 (受付開始 09:30)</p>
+                </div>
+                <div className="bg-white p-6 rounded-lg shadow-md">
+                  <h3 className="text-xl font-bold mb-4 flex items-center">
+                    <Building2 className="mr-2" />
+                    会場
+                  </h3>
+                  <p className="mb-2">グロービス経営大学院　横浜・特設キャンパス</p>
+                  <p>〒220-0005　神奈川県横浜市西区南幸1-1-1 JR横浜タワー14F</p>
+                </div>
+                <div className="bg-white p-6 rounded-lg shadow-md">
+                  <h3 className="text-xl font-bold mb-4 flex items-center">
+                    <MapPin className="mr-2" />
+                    アクセス
+                  </h3>
+                  <p className="mb-2">JR横浜駅 北改札口、きた西口出口を出て左／徒歩5分</p>
+                  <p className="mb-2">JR横浜タワー内に14Fへの直通エレベーターはございませんので、12Fで13-21F行きエレベーターまたはエスカレーターにお乗り換えいただき、14Fまでお越しください。</p>
+                  <a href="https://mba.globis.ac.jp/inquiry/#yokohama" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
+                    詳細なアクセス情報はこちら
+                  </a>
+                </div>
+                <div className="bg-white p-6 rounded-lg shadow-md">
+                  <h3 className="text-xl font-bold mb-4 flex items-center">
+                    <User className="mr-2" />
+                    主催
+                  </h3>
+                  <p className="mb-2">グロービス横浜活性化クラブ(GYAC)</p>
+                  <a href="https://www.facebook.com/groups/gyac.yokohama" target="_blank" rel="noopener noreferrer" className="inline-block">
+                    <Facebook className="w-6 h-6 text-[#545454] hover:text-[#ffde59]" />
+                  </a>
+                </div>
+              </div>
+            </div>
+          </section>
+        </main>
+  
+        <footer className="bg-[#545454] text-white py-8">
+          <div className="container mx-auto px-4 max-w-6xl">
+            <div className="text-center">
+              <p>
+                お問い合わせ: <a href="mailto:kamome_2024.stu@globis.ac.jp" className="hover:underline">kamome_2024.stu@globis.ac.jp</a>
+              </p>
+              <p className="mt-4">&copy; 2024 かもめ会議. All rights reserved.</p>
+            </div>
           </div>
-        </section>
-      </main>
-
-      <footer className="bg-[#545454] text-white py-8">
-        <div className="container mx-auto px-4 max-w-6xl">
-          <div className="text-center">
-            <p>
-              お問い合わせ: <a href="mailto:kamome_2024.stu@globis.ac.jp" className="hover:underline">kamome_2024.stu@globis.ac.jp</a>
-            </p>
-            <p className="mt-4">&copy; 2024 かもめ会議. All rights reserved.</p>
-          </div>
-        </div>
-      </footer>
-    </div>
-  )
-}
+        </footer>
+      </div>
+    )
+  }

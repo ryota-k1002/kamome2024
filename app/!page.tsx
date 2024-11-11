@@ -2,8 +2,7 @@
 
 import Image from 'next/image'
 import { useState, useEffect, useRef } from 'react'
-import { Button } from "@/components/ui/button"
-import { Calendar, MapPin, ExternalLink, Facebook, Building2, User } from 'lucide-react'
+import { Calendar, MapPin, ExternalLink, Facebook, Building2, User, AlertTriangle } from 'lucide-react'
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
 
 const WaveAndBirdAnimation = () => {
@@ -139,9 +138,16 @@ const HeroSection = ({ timeLeft }: { timeLeft: { days: number; hours: number; mi
             <FlipCard value={timeLeft.seconds.toString().padStart(2, '0')} label="SECONDS" />
           </div>
         </div>
+        <div className="mb-6 bg-yellow-300 text-red-800 py-2 px-6 rounded-full font-bold flex items-center animate-bounce">
+          <span className="mr-2">🎉</span>
+          かもめ会議2024は大盛況のうちに終了いたしました。
+          次回のかもめ会議でお会いしましょう
+          <span className="ml-2">🎉</span>
+        </div>
         <button 
           onClick={handleScrollToRegistration}
-          className="bg-[#ffde59] text-[#545454] px-8 py-3 rounded-full font-semibold hover:bg-[#ff8383] hover:text-white transition-colors duration-300"
+          className="bg-gray-400 text-white px-8 py-3 rounded-full font-semibold cursor-not-allowed"
+          disabled
         >
           参加申し込み
         </button>
@@ -226,7 +232,7 @@ const schedule = [
             organization: 'フィクスコンシェル株式会社', 
             position: '代表取締役', 
             info: '',
-            image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E5%85%A8%E4%BD%93%E4%BC%9A_%E5%8F%A4%E9%87%8E%E3%81%95%E3%82%93-NqdsHVghFJ0ydRRjXEmratt7bs4OMJ.png'
+            image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/furuno-tJaoGkQuzJiFIEj7890LaStZUoPqaH.png'
           },
           { 
             name: '得能 淳氏 (GMBA2017期)', 
@@ -284,6 +290,7 @@ const schedule = [
         event: '分科会C',
         title: '地方創生\n～鎌倉から地方創生を生み出す地域企業について～',
         description: '鎌倉市に拠点を構え、神奈川県の地方創生だけではなく、全国の地域や企業と連携し、地域活性化、移住者の促進や関係人口創出に繋がるプロジェクトを手掛ける同社。今回ご登壇いただく宮本氏は、前職の編集者から同社に転職され、現在はちいき資本主義事業部の事業部長を担っておられます。同社がこれまで手掛けたきたプロジェクトの紹介に加え、宮本氏がどのような想いを持ち、全国の地域創生を進めているのかについてもお話いただきます。',
+        //soldOut: true, // この行を追加
         speakers: [
           { 
             name: '宮本 早織氏', 
@@ -336,6 +343,7 @@ const schedule = [
         event: '分科会F',
         title: 'サーキュラーエコノミー\n～リーダー達の社会課題への取り組み方～',
         description: 'サーキュラーエコノミーで業界をリードする2名の代表者が、食品廃棄物を利用したリサイクル事業や、容器リユースシェアリングサービス「Megloo」について話します。各社の起業から運営までの実務経験を基に、起業のノウハウや業界の未来について伺います。社会課題に関心を持つ方にとって、次の一歩を踏み出すためのヒントに満ちた１時間です。',
+        //soldOut: true, // この行を追加
         speakers: [
           { name: '髙橋 巧一氏', 
             organization: '株式会社日本フードエコロジーセンター', 
@@ -371,6 +379,7 @@ type Session = {
   title: string;
   description: string;
   speakers: Speaker[];
+  soldOut?: boolean;
 };
 
 type EventPopupProps = {
@@ -389,6 +398,11 @@ const EventPopup: React.FC<EventPopupProps> = ({ session, eventType, startTime, 
           <span className={`inline-block px-2 py-1 rounded-full text-xs font-semibold mb-2 ${eventType === 'plenary' ? 'bg-[#ffde59] text-[#545454]' : 'bg-[#ffde59] text-[#545454]'}`}>
             {session.event}
           </span>
+          {session.soldOut && (
+            <span className="absolute top-2 right-2 bg-red-500 text-white px-2 py-1 rounded-full text-xs font-bold">
+              満員御礼
+            </span>
+          )}
           <h3 className="text-xl font-bold mb-2 break-words whitespace-pre-line">{session.title}</h3>
           <p className="text-sm text-gray-600">{session.speakers.map(speaker => speaker.name).join(' / ')}</p>
           <div className="absolute bottom-0 right-0 w-0 h-0 border-l-[40px] border-l-transparent border-b-[40px] border-b-[#79a7b6] rounded-br-lg"></div>
@@ -406,6 +420,11 @@ const EventPopup: React.FC<EventPopupProps> = ({ session, eventType, startTime, 
         </DialogHeader>
         <div className="mt-4 bg-gray-100 p-4 rounded-lg">
           <DialogTitle className="text-xl font-bold mb-4 whitespace-pre-line">{session.title}</DialogTitle>
+          {session.soldOut && (
+            <p className="mb-4 text-red-500 font-bold">
+              ※ こちらの分科会は満員につき締切となりました。ご了承ください。
+            </p>
+          )}
           <p className="mb-4 whitespace-pre-line">{session.description}</p>
           <div className="space-y-2">
             {session.speakers.map((speaker, speakerIndex) => (
@@ -528,46 +547,44 @@ export default function LandingPage() {
         </section>
 
         <section id="registration" className="py-20 bg-white">
-          <div className="container mx-auto px-4 max-w-6xl">
-            <h2 className="text-3xl font-bold mb-8 text-center">参加申し込み</h2>
-            <div className="bg-[#f4f4f4] p-6 rounded-lg shadow-md mb-8">
-              <h3 className="text-xl font-bold mb-4">申し込み方法</h3>
-              <p className="mb-4">「かもめ会議 2024」への参加をお待ちしております。以下の手順に従ってお申し込みください。</p>
-              
-              <h4 className="text-lg font-bold mb-2">チケット購入</h4>
-              <p className="mb-4">料金: 2,000円（税込）</p>
-              <p className="mb-4">購入方法: Peatixにてチケットをお買い求めください。</p>
-
-              <h4 className="text-lg font-bold mb-2">参加セッション申し込み</h4>
-              <p className="mb-4">Google Formにて、ご希望の参加セッションをお選びください。</p>
-
-              <div className="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700 p-4 mb-4" role="alert">
-                <p className="font-bold">重要なお知らせ:</p>
-                <p>チケット購入とセッション申し込みの両方が必要です。Peatixでのチケット購入情報とGoogle Formでの申し込み内容に不整合がある場合、ご参加いただけない可能性がございますので、ご注意ください。</p>
-              </div>
-
-              <h4 className="text-lg font-bold mb-2">申し込み締め切り</h4>
-              <p className="mb-4">参加希望人数が一定数に達した際に申し込みを締め切らせていただきます。</p>
-
-              <h4 className="text-lg font-bold mb-2">お問い合わせ</h4>
-              <p className="mb-1">かもめ会議運営事務局</p>
-              <p className="mb-4">
-                <a href="mailto:kamome_2024.stu@globis.ac.jp" className="text-blue-600 hover:underline">
-                  kamome_2024.stu@globis.ac.jp
-                </a>
-              </p>
-
-              <div className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4 mt-6">
-                <Button className="bg-[#ffde59] text-[#545454] hover:bg-[#ffde59]/90">
-                  <a href="https://kamome2024.peatix.com/" className="block w-full" target="_blank" rel="noopener noreferrer">チケットを購入する(Peatix)</a>
-                </Button>
-                <Button className="bg-[#79a7b6] text-white hover:bg-[#79a7b6]/90">
-                  <a href="https://forms.gle/56z5xnX9FgUja8br5" className="block w-full" target="_blank" rel="noopener noreferrer">セッションを申し込む(Google Form)</a>
-                </Button>
-              </div>
-            </div>
+      <div className="container mx-auto px-4 max-w-6xl">
+        <h2 className="text-3xl font-bold mb-8 text-center">参加申し込み</h2>
+        <div className="bg-[#f4f4f4] p-6 rounded-lg shadow-md mb-8">
+          <h3 className="text-xl font-bold mb-4">申し込み状況</h3>
+          <div className="bg-red-100 border-l-4 border-red-500 text-red-700 p-4 mb-6 rounded-lg">
+            <p className="font-bold flex items-center">
+              <AlertTriangle className="mr-2" />
+              チケット完売のお知らせ
+            </p>
+            <p>多数のお申し込みをいただき誠にありがとうございます。</p>
+            <p>かもめ会議2024は全席完売となりました。</p>
+            <p>次回の開催をご期待ください。</p>
           </div>
-        </section>
+
+          <h4 className="text-lg font-bold mb-2">購入済みチケットについて</h4>
+          <p className="mb-4">受付完了後のキャンセル・返金はできません。ただし、チケットの譲渡は可能です。 </p>
+          <p className="mb-4">譲渡する際はPeatixのシステム上で譲渡の申請をお願いします。</p>
+          <p className="mb-4">尚、当事者間の譲渡に関しては運営事務局は一切の責任を負いかねます。</p>
+
+          <h4 className="text-lg font-bold mb-2">お問い合わせ</h4>
+          <p className="mb-1">かもめ会議運営事務局</p>
+          <p className="mb-4">
+            <a href="mailto:kamome_2024.stu@globis.ac.jp" className="text-blue-600 hover:underline">
+              kamome_2024.stu@globis.ac.jp
+            </a>
+          </p>
+
+          <div className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4 mt-6">
+            <button className="bg-gray-400 text-white px-4 py-2 rounded cursor-not-allowed" disabled>
+              チケット購入
+            </button>
+            <button className="bg-gray-400 text-white px-4 py-2 rounded cursor-not-allowed" disabled>
+              セッション申し込み
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
 
         <section className="py-20 bg-[#f4f4f4]">
           <div className="container mx-auto px-4 max-w-6xl">
