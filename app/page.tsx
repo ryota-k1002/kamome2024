@@ -111,7 +111,7 @@ const HeroAnimation = () => {
 
 const HeroSection = () => {
   return (
-    <div className="relative h-screen overflow-hidden bg-white">
+    <div className="hero-section relative h-[calc(100vh-4rem)] sm:h-[calc(100vh-6rem)] overflow-hidden bg-white">
       <HeroAnimation />
     </div>
   );
@@ -122,7 +122,7 @@ const FloatingHeader = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const heroSection = document.querySelector('.h-screen');
+      const heroSection = document.querySelector('.hero-section');
       if (heroSection) {
         const heroBottom = heroSection.getBoundingClientRect().bottom;
         setShowLogo(heroBottom < 0);
@@ -134,9 +134,9 @@ const FloatingHeader = () => {
   }, []);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50">
-      <div className="bg-white shadow-md">
-        <div className="container mx-auto px-4 py-4 flex justify-between items-center max-w-6xl">
+    <header className="fixed top-0 left-0 right-0 z-50 h-16 sm:h-24"> {/* 高さを明示的に指定 */}
+      <div className="bg-white shadow-md h-full">
+        <div className="container mx-auto px-4 py-4 flex justify-between items-center max-w-6xl h-full">
           <div className={`w-48 h-20 transition-opacity duration-300 ${showLogo ? 'opacity-100' : 'opacity-0'}`}>
             <Image
               src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/kamome_logo_padding-VBJ3I4qnKZ8Fa7oZLYgwD1xvXWtFf8.png"
@@ -414,7 +414,7 @@ export default function LandingPage() {
   return (
     <div className="min-h-screen bg-[#79a7b6] text-[#545454] font-sans">
       <FloatingHeader />
-      <main>
+      <main className="mt-16 sm:mt-24">
         <HeroSection />
         <section id="about" className="py-20 bg-white">
           <div className="container mx-auto px-4 max-w-6xl">
