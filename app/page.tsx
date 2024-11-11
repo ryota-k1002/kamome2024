@@ -60,46 +60,48 @@ const HeroAnimation = () => {
 
   return (
     <div className="absolute inset-0 w-full h-full">
-      <picture>
-        <source media="(min-width: 640px)" srcSet="/bg-pc.png" />
+      <div className="relative h-full max-w-7xl mx-auto"> {/* サイズを制限するコンテナを追加 */}
+        <picture>
+          <source media="(min-width: 640px)" srcSet="/bg-pc.png" />
+          <img
+            src="/bg.png"
+            alt=""
+            className="absolute top-0 left-1/2 -translate-x-1/2 h-full w-auto max-w-[120%] sm:max-w-full object-contain"
+            aria-hidden="true"
+          />
+        </picture>
+        
         <img
-          src="/bg.png"
+          ref={waveRef}
+          src="/wave.png"
           alt=""
-          className="absolute top-0 left-1/2 -translate-x-1/2 h-full w-auto min-w-full object-none"
+          className="absolute top-0 left-1/2 -translate-x-1/2 h-full w-auto max-w-[120%] sm:max-w-full object-contain"
           aria-hidden="true"
         />
-      </picture>
-      
-      <img
-        ref={waveRef}
-        src="/wave.png"
-        alt=""
-        className="absolute top-0 left-1/2 -translate-x-1/2 h-full w-auto min-w-full object-none"
-        aria-hidden="true"
-      />
-      
-      <img
-        ref={cloudRef}
-        src="/cloud.png"
-        alt=""
-        className="absolute top-0 left-1/2 -translate-x-1/2 h-full w-auto min-w-full object-none"
-        aria-hidden="true"
-      />
-      
-      <img
-        ref={seagullRef}
-        src="/seagull.png"
-        alt=""
-        className="absolute top-0 left-1/2 -translate-x-1/2 h-full w-auto min-w-full object-none"
-        aria-hidden="true"
-      />
+        
+        <img
+          ref={cloudRef}
+          src="/cloud.png"
+          alt=""
+          className="absolute top-0 left-1/2 -translate-x-1/2 h-full w-auto max-w-[120%] sm:max-w-full object-contain"
+          aria-hidden="true"
+        />
+        
+        <img
+          ref={seagullRef}
+          src="/seagull.png"
+          alt=""
+          className="absolute top-0 left-1/2 -translate-x-1/2 h-full w-auto max-w-[120%] sm:max-w-full object-contain"
+          aria-hidden="true"
+        />
 
-      <img
-        src="/top.png"
-        alt=""
-        className="absolute top-0 left-1/2 -translate-x-1/2 h-full w-auto min-w-full object-none"
-        aria-hidden="true"
-      />
+        <img
+          src="/top.png"
+          alt=""
+          className="absolute top-0 left-1/2 -translate-x-1/2 h-full w-auto max-w-[120%] sm:max-w-full object-contain"
+          aria-hidden="true"
+        />
+      </div>
     </div>
   );
 };
