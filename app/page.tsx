@@ -414,7 +414,7 @@ export default function LandingPage() {
   return (
     <div className="min-h-screen bg-[#79a7b6] text-[#545454] font-sans">
       <FloatingHeader />
-      <main className="pt-24">
+      <main className="pt-[60px] sm:pt-24">
         <HeroSection />
         <section id="about" className="py-20 bg-white">
           <div className="container mx-auto px-4 max-w-6xl">
